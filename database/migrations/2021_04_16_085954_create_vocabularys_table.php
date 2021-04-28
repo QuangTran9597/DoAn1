@@ -15,10 +15,10 @@ class CreateVocabularysTable extends Migration
     {
         Schema::create('vocabularys', function (Blueprint $table) {
             $table->id();
-            $table->integer('id_topics');
-            $table->string('name_vocab');
-            $table->string('image_vocab');
-            $table->string('audio_vocab');
+            $table->integer('id_topic');
+            $table->string('vocabulary_name');
+            $table->string('vocabulary_image');
+            $table->string('vocabulary_audio');
             $table->string('vietsub');
             $table->timestamps();
         });

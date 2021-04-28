@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Topic;
+use App\Models\Course;
 use Illuminate\Http\Request;
 
-class VocabController extends Controller
+class CourseController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,10 @@ class VocabController extends Controller
      */
     public function index()
     {
-        //
+        $course = Course::orderByDesc('id')->paginate(3);
+
+        return view('admins.courses.show_courses', compact('course'));
+
     }
 
     /**
@@ -24,8 +27,7 @@ class VocabController extends Controller
      */
     public function create()
     {
-        $topic = Topic::all();
-        return view('admins.vocab.create_vocab', compact('topic'));
+        return view('admins.courses.create_course');
     }
 
     /**
@@ -36,7 +38,12 @@ class VocabController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request->all());
+        // dd($request->all());
+
+        Course::query()->create($request->only('course_name', 'course_title', 'course_content'));
+
+        return redirect()->route('course.index');
+
     }
 
     /**

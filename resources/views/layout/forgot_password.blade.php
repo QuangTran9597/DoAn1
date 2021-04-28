@@ -34,7 +34,7 @@
                                 <a class="small" href="{{ route('register')}}">Create an Account!</a>
                             </div>
                             <div class="text-center">
-                                <a class="small" href="{{ route('login'  )}}">Already have an account? Login!</a>
+                                <a class="small" href="{{ route('login') }}">Already have an account? Login!</a>
                             </div>
                         </div>
                 </div>

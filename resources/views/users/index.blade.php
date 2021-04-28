@@ -29,13 +29,13 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav text-uppercase ml-auto">
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/khoahoc">Khóa Học</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ route('user.topics') }}">Bài Học</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="">Bài Học</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/nghe">Luyện Nghe</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/tuvung">Từ vựng</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/dethi">Đề Thi</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="">Truyện</a></li>
-                        <!-- <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ route('get.logout')}}">{{ Auth::user()->name }}<i class="fas fa-sign-out-alt "></i>LogOut</a></li> -->
-                        <li class="nav-item dropdown no-arrow">
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ route('get.logout')}}">{{ Auth::user()->name }}<i class="fas fa-sign-out-alt "></i>LogOut</a></li>
+                        <!-- <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{Auth::user()->email}}</span>
@@ -43,17 +43,17 @@
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="#">
+                                <!-- <a class="dropdown-item" href="#">
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Profile
-                                </a>
+                                </a> -->
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="{{route('get.logout')}}" data-toggle="modal" data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt "></i>
                                     Logout
                                 </a>
                             </div>
-                        </li>
+                        </li> -->
                     </ul>
                 </div>
             </div>
@@ -121,7 +121,7 @@
         </div>
 
         <!-- Modal LogOut-->
-        <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        <!-- <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -138,7 +138,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
 
     <!-- Bootstrap core JS-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

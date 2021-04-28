@@ -35,8 +35,8 @@
                     <a class="collapse-item" href="">Khóa học cơ bản</a>
                     <a class="collapse-item" href="">Tiếng anh giao tiếp</a>
                     <a class="collapse-item" href="">Tiếng anh phổ thông</a>
-                    <a class="collapse-item" href="">Ngữ pháp tiếng anh</a>
-                    <a class="collapse-item" href="">Thêm khóa học</a>
+                    <a class="collapse-item" href="{{route('course.index')}}">Danh sách khóa học</a>
+                    <a class="collapse-item" href="{{route('course.create')}}">Thêm khóa học</a>
                 </div>
             </div>
         </li>
@@ -56,8 +56,8 @@
                     <a class="collapse-item" href="">Luyện nghe tiếng anh</a>
                     <a class="collapse-item" href="">Trò chơi tiếng anh</a>
                     <a class="collapse-item" href="">Học tiếng anh quản phim</a>
-                    <a class="collapse-item" href="">Học tiếng anh qua bài hát</a>
-                    <a class="collapse-item" href="">Thêm bài học</a>
+                    <a class="collapse-item" href="{{route('lesson.index')}}">Danh sách bài học</a>
+                    <a class="collapse-item" href="{{route('lesson.create')}}">Thêm bài học</a>
                 </div>
             </div>
         </li>
@@ -78,6 +78,22 @@
                         <a class="collapse-item" href="forgot-password.html">Myhome</a>
                         <a class="collapse-item" href="{{route('topics.create')}}">Thêm chủ đề</a>
                         <a class="collapse-item" href="{{route('topics.index')}}">Danh sách chủ đề</a>
+                    </div>
+                </div>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePagesone"
+                    aria-expanded="true" aria-controls="collapsePages">
+                    <i class="fas fa-fw fa-folder"></i>
+                    <span>Quản lý từ vựng</span>
+                </a>
+                <div id="collapsePagesone" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header"></h6>
+                        <a class="collapse-item" href="login.html">Danh sách từ vựng</a>
+                        <a class="collapse-item" href="register.html">Từ vựng theo chủ đề </a>
+                        <a class="collapse-item" href="{{route('vocabulary.create')}}">Thêm từ vựng</a>
                     </div>
                 </div>
             </li>

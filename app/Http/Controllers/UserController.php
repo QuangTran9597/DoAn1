@@ -12,6 +12,11 @@ use Illuminate\Support\Facades\Auth;
 class UserController extends Controller
 {
     public function login_user(Request $request){
+        $request->validate([
+            'email' => 'required|',
+            'password' => 'required',
+
+        ]);
 
         $user = $request->only('email', 'password', 'quyen');
 
@@ -27,9 +32,9 @@ class UserController extends Controller
             }
 
         } else {
-            return redirect()->route('login')->with('thongbao', 'Đăng nhập không thành công');
+            return redirect()->route('login');
         }
-         return redirect()->route('login')->with('thongbao', 'Đăng nhập không thành công');
+         return redirect()->route('login');
 
     }
 
@@ -41,8 +46,14 @@ class UserController extends Controller
         return view('users.topics');
     }
 
-    public function logout() {
+    public function logout( Request $request)
+     {
+        
         Auth::logout();
+
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
         return redirect()->route('login');
     }
 

@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Topic;
+use App\Models\Course;
+use App\Models\Lesson;
 use Illuminate\Http\Request;
 
-class VocabController extends Controller
+class LessonController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +15,8 @@ class VocabController extends Controller
      */
     public function index()
     {
-        //
+        $lessons = Lesson::orderByDesc('id')->paginate(2);
+        return view('admins.lessons.show_lesson', compact('lessons'));
     }
 
     /**
@@ -24,8 +26,8 @@ class VocabController extends Controller
      */
     public function create()
     {
-        $topic = Topic::all();
-        return view('admins.vocab.create_vocab', compact('topic'));
+        $course = Course::all();
+        return view('admins.lessons.create_lesson', compact('course'));
     }
 
     /**
@@ -36,7 +38,19 @@ class VocabController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request->all());
+        //   dd($request->all());
+        $lesson = Lesson::query()->create($request->only('course_id','lesson_name', 'lesson_title', 'lesson_content','lesson_image'));
+
+        if($file = $request->file('lesson_image'))
+        {
+            $fileName = date('YmdHis') . '_' . $file->getClientOriginalName();
+
+            $file->move(public_path('upload/images'), $fileName);
+
+            $lesson->update(['lesson_image'=> $fileName]);
+        }
+
+        return redirect()->route('lesson.index');
     }
 
     /**
@@ -58,7 +72,13 @@ class VocabController extends Controller
      */
     public function edit($id)
     {
-        //
+        $lessons = Lesson::with('course')->findOrFail($id);
+
+        $courses = Course::all();
+
+        return view('admins.lessons.edit_lesson', compact(['lessons', 'courses']));
+
+
     }
 
     /**

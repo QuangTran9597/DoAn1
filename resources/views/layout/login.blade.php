@@ -18,11 +18,7 @@
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">Welcome!</h1>
                                     </div>
-                                    @if(session('thongbao'))
-                                        <div class="alert alert-success">
-                                            {{session('thongbao')}}
-                                        </div>
-                                    @endif
+
                                     <form class="user" action="{{ route('post.login')}}" method="POST">
                                         @csrf
                                         <div class="form-group">
@@ -30,10 +26,20 @@
                                                 id="exampleInputEmail" aria-describedby="emailHelp"
                                                 placeholder="Email@gmail.com..." name="email" require="" >
                                         </div>
+
+                                        @error('email')
+                                            <div class="arlet alert-danger">{{$message}}</div>
+                                        @enderror
+
                                         <div class="form-group">
                                             <input type="password" class="form-control form-control-user"
                                                 id="exampleInputPassword" placeholder="Password..." name="password" require="">
                                         </div>
+
+                                        @error('password')
+                                            <div class="arlet alert-danger">{{$message}}</div>
+                                        @enderror
+
                                         <div class="form-group">
                                             <div class="custom-control custom-checkbox small">
                                                 <input type="checkbox" class="custom-control-input" id="customCheck">

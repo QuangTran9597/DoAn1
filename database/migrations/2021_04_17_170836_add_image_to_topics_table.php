@@ -14,7 +14,7 @@ class AddImageToTopicsTable extends Migration
     public function up()
     {
         Schema::table('topics', function (Blueprint $table) {
-            $table->string('image_path');
+
         });
     }
 
@@ -26,7 +26,7 @@ class AddImageToTopicsTable extends Migration
     public function down()
     {
         Schema::table('topics', function (Blueprint $table) {
-            $table->dropColumn('image_path');
+          
         });
     }
 }
