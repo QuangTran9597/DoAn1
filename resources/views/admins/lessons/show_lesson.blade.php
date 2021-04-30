@@ -2,6 +2,13 @@
 @section('content')
 <h3 align="center">Danh Sách Các Bài Học</h3>
 <br>
+@if(session('message'))
+    <span  align="center" style="color:darkcyan; " class="notification alert-danger">
+        <h5>{{ session('message')}}</h5>
+    </span>
+
+@endif
+
 <div class="container">
     <div class="row">
 
@@ -27,8 +34,11 @@
                     <td> {{$lesson->lesson_content}} </td>
                     <td><img width="130px" src="/upload/images/{{$lesson->lesson_image}}" alt=""></td>
                     <!-- <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="">View</a></td> -->
-                    <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="{{route('lesson.edit', $lesson->id)}}">Edit</a></td>
-                    <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="">Delete</a></td>
+                    <td class="center"><i class="fa fa-pencil fa-fw"></i>
+                    <a href="{{route('lesson.edit', $lesson->id)}} " class="btn btn-success">Edit</a></td>
+
+                    <td class="center"><i class="fa fa-trash-o  fa-fw"></i>
+                    <button type="button" class="btn btn-danger delete-lesson" data-id="{{ $lesson->id }}">Delete</button></td>
                 </tr>
                 @endforeach
             </tbody>
@@ -41,4 +51,23 @@
         <a class="btn btn-primary" href="{{ $lessons->nextPageUrl() }}">Next</a>
     </div>
 </div>
+
+<script type="text/javascript">
+    document.addEventListener('DOMContentLoaded', evt => {
+        $('.delete-lesson').click(function (e)  {
+            if(confirm('Are you sure DELETE ? ')) {
+                $.ajax({
+                    url: '/lesson/' + $(this).data('id'),
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
+                    type: 'DELETE',
+                    success: function(result) {
+                        location.reload();
+                    }
+                });
+            }
+        });
+    })
+</script>
 @endsection

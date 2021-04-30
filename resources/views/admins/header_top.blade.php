@@ -96,9 +96,9 @@
     </li>
 
     <div class="topbar-divider d-none d-sm-block"></div>
-
+    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ route('get.logout')}}">{{ Auth::user()->name }}<i class="fas fa-sign-out-alt "></i>LogOut</a></li>
     <!-- Nav Item - User Information -->
-    <li class="nav-item dropdown no-arrow">
+    <!-- <li class="nav-item dropdown no-arrow">
         <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{Auth::user()->email}}</span>
@@ -118,7 +118,7 @@
                 Logout
             </a>
         </div>
-    </li>
+    </li> -->
 
 </ul>
 

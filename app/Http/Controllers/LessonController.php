@@ -90,7 +90,23 @@ class LessonController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        // dd($request->all());
+        $lesson = Lesson::with('course')->findOrFail($id);
+
+        $lesson->update($request->only('course_id', 'lesson_name', 'lesson_title', 'lesson_content', 'lesson_image'));
+
+
+        if($file = $request->file('lesson_image'))
+        {
+            $fileName = date('YmdHis') . '_' . $file->getClientOriginalName();
+
+            $file->move(public_path('upload/images'), $fileName);
+
+            $lesson->update(['lesson_image'=> $fileName]);
+        }
+
+        return redirect()->route('lesson.index')->with('message', 'Bạn đã Update thành công');
+
     }
 
     /**
@@ -101,6 +117,6 @@ class LessonController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Lesson::destroy($id);
     }
 }

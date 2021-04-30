@@ -25,7 +25,7 @@ use App\Http\Controllers\VocabController;
 */
 
 
-Route::get('login', [HomeController::class, 'login'])->name('login');
+Route::get('login', [HomeController::class, 'login'])->middleware('guest')->name('login');
 
 Route::get('register', [HomeController::class, 'register'])->name('register');
 
