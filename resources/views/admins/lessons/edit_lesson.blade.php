@@ -3,7 +3,7 @@
 <div class="container">
     <div class="row">
         <div class="col col-sm-6 ">
-            <h3>Mời bạn thêm bài học</h3>
+            <h3>Update Bài Học</h3>
             <br>
 
             <form action="{{ route('lesson.update', $lessons->id) }}" method="POST" enctype="multipart/form-data">
@@ -63,7 +63,7 @@
 
                 <br>
 
-                <button type="submit" class="btn btn-primary">Edit</button>
+                <button type="submit" class="btn btn-primary">Update</button>
             </form>
         </div>
         <div class="col col-sm-6">

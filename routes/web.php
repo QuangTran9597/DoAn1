@@ -6,12 +6,15 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DemoController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LessonController;
+use App\Http\Controllers\PageTopicsController;
+use App\Http\Controllers\PageVocabularyController;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\TopicsController;
 use App\Http\Controllers\UserController;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Controllers\VocabController;
-
+use Illuminate\Support\Facades\Schema;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,7 +43,11 @@ Route::post('login', [UserController::class, 'login_user'])->name('post.login');
 
     Route::get('user', [UserController::class, 'index'])->name('user.index');
 
-    Route::get('topics',[UserController::class,'topics'])->name('user.topics');
+    Route::get('page', [PageTopicsController::class, 'show_topics'])->name('page.showtopics');
+
+    Route::get('start-topics/{id}', [PageTopicsController::class, 'start_topics'])->name('start_topics');
+
+    Route::get('start-topics-vocabulary/{id}', [PageVocabularyController::class, 'start_vocabulary'])->name('start_vocabulary');
 
  });
 
@@ -58,8 +65,8 @@ Route::post('login', [UserController::class, 'login_user'])->name('post.login');
 
  });
 
- Route::get('test', function() {
-     return view('pages.home');
+ Route::get('doiten', function() {
+     Schema::rename('vocabularys', 'vocabularies');
  });
 
 

@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Lesson;
 use App\Models\Topic;
+use Illuminate\Auth\Access\Gate;
 use Illuminate\Http\Request;
 use Intervention\Image\ImageManagerStatic as Image;
 
@@ -16,7 +18,7 @@ class TopicsController extends Controller
      */
     public function index()
     {
-        $topics = Topic::all();
+        $topics = Topic::orderByDesc('id')->paginate(2);
         return view('admins.topics.show_topics', compact('topics'));
     }
 
@@ -27,7 +29,8 @@ class TopicsController extends Controller
      */
     public function create()
     {
-        return view('admins.topics.create_topics');
+        $lessons = Lesson::all();
+        return view('admins.topics.create_topics', compact('lessons'));
     }
 
     /**
@@ -38,21 +41,18 @@ class TopicsController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'name_topic' => 'required|',
-            'image_topic' => 'required',
 
-        ]);
+        // dd($request->all());
 
-        $post  = Topic::query()->create($request->only('name_topic', 'image_topic','image_path'));
+        $post  = Topic::query()->create($request->only('lesson_id', 'topic_name','topic_title', 'topic_content', 'topic_image'));
 
-        if($file = $request->file('image_path'))
+        if($file = $request->file('topic_image'))
         {
             $fileName = date('YmdHis') . '_' . $file->getClientOriginalName();
 
-            $file->move(public_path('upload/images'), $fileName);
+            $file->move(public_path('upload/images/topics'), $fileName);
 
-            $post->update(['image_path'=> $fileName]);
+            $post->update(['topic_image'=> $fileName]);
         }
 
         return redirect()->route('topics.index');
@@ -78,7 +78,11 @@ class TopicsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $topics = Topic::with('lesson')->findOrFail($id);
+
+        $lessons = Lesson::all();
+
+        return view('admins.topics.edit_topic', compact(['topics', 'lessons']));
     }
 
     /**
@@ -90,7 +94,25 @@ class TopicsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        // dd($request->all());
+        // if(! Gate::allows('update-topic', $topic)){
+        //     abort(403);
+        // }
+
+        $topics = Topic::with('lesson')->findOrFail($id);
+
+        $topics->update($request->only('lesson_id', 'topic_name', 'topic_title', 'topic_content', 'topic_image'));
+
+        if($file = $request->file('topic_image'))
+        {
+            $fileName = date('YmdHis') . '_' . $file->getClientOriginalName();
+
+            $file->move(public_path('upload/images/topics'), $fileName);
+
+            $topics->update(['topic_image'=> $fileName]);
+        }
+
+        return redirect()->route('topics.index')->with('message', 'Bạn đã Update thành công');
     }
 
     /**
@@ -101,6 +123,6 @@ class TopicsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Topic::destroy($id);
     }
 }

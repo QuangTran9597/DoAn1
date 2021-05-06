@@ -91,8 +91,8 @@
                 <div id="collapsePagesone" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header"></h6>
-                        <a class="collapse-item" href="login.html">Danh sách từ vựng</a>
-                        <a class="collapse-item" href="register.html">Từ vựng theo chủ đề </a>
+                        <a class="collapse-item" href="{{ route('vocabulary.index')}}">Danh sách từ vựng</a>
+                        <a class="collapse-item" href="">Từ vựng theo chủ đề </a>
                         <a class="collapse-item" href="{{route('vocabulary.create')}}">Thêm từ vựng</a>
                     </div>
                 </div>

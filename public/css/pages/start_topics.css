@@ -1,0 +1,78 @@
+div {
+    display: block;
+}
+
+.page-section {
+    margin-left: 21px;
+    display: block;
+}
+
+.thumb-outer {
+    width: 450px;
+    min-height: 100px;
+    float: left;
+}
+
+#tab1-content .thumb {
+    width: 90px;
+    border: 3px solid #ebd2d2;
+    cursor: pointer;
+    margin: 5px;
+    padding: 3px;
+}
+
+
+
+#flashcard-area {
+    width: 529px;
+    float: left;
+}
+
+.flashcard-outer{
+    margin-top: 5px;
+    margin-left: 40px;
+    text-align: center;
+    padding: 6px;
+}
+
+.img-main{
+    max-width: 400px;
+    min-width: 350px;
+    cursor: pointer;
+    padding: 3px;
+    border: 2px solid #646464;
+    margin: 3px;
+
+}
+
+ .caption {
+    line-height: 35px;
+    max-width: 400px;
+    min-width: 350px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: aliceblue;
+    height: 40px;
+    background-color: black;
+    margin-top: 0px;
+    text-align: center;
+    margin-left: 46px;
+    opacity: 0.7;
+}
+
+.global-float-right {
+    float: right;
+    margin-top: 10px;
+    margin-right: 80px;
+}
+
+.icon-vocabulary{
+   font-size: 30px;
+}
+
+.icon-vocabulary li{
+    padding-left: 20px ;
+}
+
+

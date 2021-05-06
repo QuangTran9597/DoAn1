@@ -10,9 +10,20 @@ class Topic extends Model
     use HasFactory;
 
     protected $fillable = [
-        'name_topic' ,
-        'image_topic',
-        'image_path',
+        'lesson_id' ,
+        'topic_name',
+        'topic_title',
+        'topic_content',
+        'topic_image',
     ];
 
+    public function lesson()
+    {
+        return $this->belongsTo(Lesson::class);
+    }
+
+    public function vocabularies()
+    {
+        return $this->hasMany(Vocabulary::class);
+    }
 }

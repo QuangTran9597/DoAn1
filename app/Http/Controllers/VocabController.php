@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Topic;
+use App\Models\Vocabulary;
 use Illuminate\Http\Request;
 
 class VocabController extends Controller
@@ -14,7 +15,9 @@ class VocabController extends Controller
      */
     public function index()
     {
-        //
+        $vocabularies = Vocabulary::orderByDesc('id')->paginate(3);
+
+        return view('admins.vocab.show_vocab', compact('vocabularies'));
     }
 
     /**
@@ -24,8 +27,8 @@ class VocabController extends Controller
      */
     public function create()
     {
-        $topic = Topic::all();
-        return view('admins.vocab.create_vocab', compact('topic'));
+        $topics = Topic::all();
+        return view('admins.vocab.create_vocab', compact('topics'));
     }
 
     /**
@@ -36,7 +39,30 @@ class VocabController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request->all());
+        // dd($request->all());
+
+        $vocabularies = Vocabulary::query()->create($request->only('id_topic','vocabulary_name', 'vietsub', 'vocabulary_image', 'vocabulary_audio'));
+
+        if($file = $request->file('vocabulary_image'))
+        {
+            $fileName = date('YmdHis') . '_' . $file->getClientOriginalName();
+
+            $file->move(public_path('upload/images/vocabulary'), $fileName);
+
+            $vocabularies->update(['vocabulary_image'=> $fileName]);
+        }
+
+        if($fileAudio = $request->file('vocabulary_audio'))
+        {
+            $fileNameAudio = date('YmdHis') . '_' . $fileAudio->getClientOriginalName();
+
+            $fileAudio->move('upload/audio', $fileNameAudio);
+
+            $vocabularies->update(['vocabulary_audio' => $fileNameAudio]);
+
+        }
+
+        return redirect()->route('vocabulary.index');
     }
 
     /**

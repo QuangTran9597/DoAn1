@@ -65,7 +65,9 @@ class CourseController extends Controller
      */
     public function edit($id)
     {
-        //
+        $courses = Course::findOrFail($id);
+
+        return view('admins.courses.edit_course', compact('courses'));
     }
 
     /**
@@ -77,7 +79,13 @@ class CourseController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        // dd($request->all());
+
+        $courses = Course::findOrFail($id);
+
+        $courses->update($request->only('course_name', 'course_title', 'course_content'));
+
+        return \redirect()->route('course.index')->with('message', 'Bạn đã Update thành công');
     }
 
     /**
@@ -88,6 +96,6 @@ class CourseController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Course::destroy($id);
     }
 }

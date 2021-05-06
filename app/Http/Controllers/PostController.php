@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Topic;
 use Illuminate\Http\Request;
 
-class CoursesController extends Controller
+class PostController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +14,8 @@ class CoursesController extends Controller
      */
     public function index()
     {
-        //
+
+        
     }
 
     /**

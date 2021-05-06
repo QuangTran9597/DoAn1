@@ -42,13 +42,10 @@ class UserController extends Controller
         return view('users.index');
     }
 
-    public function topics() {
-        return view('users.topics');
-    }
 
     public function logout( Request $request)
      {
-        
+
         Auth::logout();
 
         $request->session()->invalidate();

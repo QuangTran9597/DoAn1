@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Models\Topic;
+use App\User;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Gate;
 
@@ -25,6 +27,8 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        //
+        Gate::define('update-topic', function(User $user, Topic $topic){
+                return $user->id === $topic->quyen;
+        }) ;
     }
 }
