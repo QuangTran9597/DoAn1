@@ -27,8 +27,8 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        Gate::define('update-topic', function(User $user, Topic $topic){
-                return $user->id === $topic->quyen;
-        }) ;
+        Gate::define('create-courses', function($user){
+            return $user->quyen === 'admin';
+        });
     }
 }

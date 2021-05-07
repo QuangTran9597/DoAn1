@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Course;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
 class CourseController extends Controller
 {
@@ -27,6 +28,9 @@ class CourseController extends Controller
      */
     public function create()
     {
+        // sử dụng Gate
+        Gate::authorize('create-courses');
+
         return view('admins.courses.create_course');
     }
 
@@ -39,6 +43,8 @@ class CourseController extends Controller
     public function store(Request $request)
     {
         // dd($request->all());
+
+        Gate::authorize('create-courses');  // sử dụng Gate
 
         Course::query()->create($request->only('course_name', 'course_title', 'course_content'));
 

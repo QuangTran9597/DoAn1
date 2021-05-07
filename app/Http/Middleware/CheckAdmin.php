@@ -17,6 +17,7 @@ class CheckAdmin
      */
     public function handle(Request $request, Closure $next)
     {
+        //phân quyền admin
         if (Auth::check()) {
             $admin = Auth::user();
             if($admin->quyen == 'admin')

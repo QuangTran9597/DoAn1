@@ -19,12 +19,13 @@ class CheckLogin
      */
     public function handle(Request $request, Closure $next)
     {
+        //phân quyền user
         if(Auth::check())
         {
             $user = Auth::user();
             if($user->quyen=='user') {
                 return $next($request);
-                    
+
             } else {
                 return redirect()->route('login');
             }

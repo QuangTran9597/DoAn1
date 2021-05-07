@@ -37,9 +37,12 @@ Route::get('forgot_password', [HomeController::class, 'forgot_password'])->name(
 Route::get('logout',[UserController::class,'logout'])->middleware('auth')->name('get.logout');
 
 // Route::get('home', [HomeController::class, 'home'])->name('home');
+
+
 Route::post('login', [UserController::class, 'login_user'])->name('post.login');
 
- Route::middleware(['checklogin'])->group(function () {
+// quyền user được học các bài học trên pages
+ Route::middleware(['checklogin','auth'])->group(function () {
 
     Route::get('user', [UserController::class, 'index'])->name('user.index');
 
@@ -51,7 +54,8 @@ Route::post('login', [UserController::class, 'login_user'])->name('post.login');
 
  });
 
- Route::middleware('checkadmin')->group(function(){
+ // quyền admin thêm sửa xóa các bài viết
+ Route::middleware('checkadmin', 'auth')->group(function(){
 
     Route::get('admin.welcome', [AdminController::class, 'welcome'])->name('admin.welcome');
 
@@ -65,13 +69,13 @@ Route::post('login', [UserController::class, 'login_user'])->name('post.login');
 
  });
 
- Route::get('doiten', function() {
-     Schema::rename('vocabularys', 'vocabularies');
- });
+//  Route::get('doiten', function() {
+//      Schema::rename('vocabularys', 'vocabularies');
+//  });
 
 
- Route::get('test1', function() {
-    return view('pages.user');
-});
+//  Route::get('test1', function() {
+//     return view('pages.user');
+// });
 
 
