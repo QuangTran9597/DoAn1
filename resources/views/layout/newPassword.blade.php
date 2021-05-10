@@ -26,15 +26,32 @@
                                 </span>
 
                                 @endif
-                                <form class="user" action="{{ route('post.forgotPassword')}}" method="POST">
+                                <form class="user" action="{{ route('post.newPassword', $user->id)}}" method="POST">
                                     @csrf
                                     <div class="form-group">
                                         <input type="email" name="email" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Enter Email Address...">
-
-                                        @error('email')
-                                        <div class="arlet alert-danger">{{$message}}</div>
-                                        @enderror
                                     </div>
+                                    @error('email')
+                                    <div class="arlet alert-danger">{{$message}}</div>
+                                    @enderror
+
+                                    <div class="form-group">
+                                        <input type="password" class="form-control form-control-user"  placeholder="Password..." name="password" >
+                                    </div>
+
+                                    @error('password')
+                                    <div class="arlet alert-danger">{{$message}}</div>
+                                    @enderror
+
+                                    <div class="form-group">
+                                        <input type="password" class="form-control form-control-user"  placeholder="Repeat Password..." name="repeat_password">
+                                    </div>
+
+                                    @error('repeat_password')
+                                    <div class="arlet alert-danger">{{$message}}</div>
+                                    @enderror
+
+
                                     <button type="submit" class="btn btn-primary btn-user btn-block">Reset Password</button>
                                 </form>
                                 <hr>

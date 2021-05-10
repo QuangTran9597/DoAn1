@@ -38,10 +38,10 @@
                 <div class="button-list global-float-right">
                     <div class="icon-vocabulary">
 
-                        <a class="btn btn-dark btn-social mx-2" href="#!" style="opacity: 0.2;"> <i class="fas fa-arrow-left"></i></a>
-                        <a class="btn btn-dark btn-social mx-2" href="#!"> <i class="fas fa-arrow-right"></i></a>
-                        <a class="btn btn-dark btn-social mx-2" href="#!" style="opacity: 0.4;"> <i class="fas fa-reply"></i></a>
-                        <a class="btn btn-dark btn-social mx-2" href="#!"> <i class="fas fa-volume-up"></i></a>
+                        <a class="btn btn-dark btn-social mx-2" title="left" href="#!" style="opacity: 0.2;"> <i class="fas fa-arrow-left"></i></a>
+                        <a class="btn btn-dark btn-social mx-2" title="right" href="#!"> <i class="fas fa-arrow-right"></i></a>
+                        <a class="btn btn-dark btn-social mx-2" title="reply" href="#!" style="opacity: 0.4;"> <i class="fas fa-reply"></i></a>
+                        <a class="btn btn-dark btn-social mx-2" title="volume" href="#!"> <i class="fas fa-volume-up"></i></a>
                         <a class="btn btn-dark btn-social mx-2" href="#!" style="opacity: 0.8;"> <i class="fas fa-microphone"></i></a>
 
                     </div>

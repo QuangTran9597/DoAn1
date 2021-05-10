@@ -9,12 +9,19 @@ use App\Http\Controllers\LessonController;
 use App\Http\Controllers\PageTopicsController;
 use App\Http\Controllers\PageVocabularyController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\TopicsController;
 use App\Http\Controllers\UserController;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Controllers\VocabController;
+// use App\Mail\VerifyEmail;
+use Illuminate\Notifications\Events\NotificationSent;
+use Illuminate\Support\Facades\Notification;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Notification as FacadesNotification;
 use Illuminate\Support\Facades\Schema;
+use App\Notifications\VerifyEmail;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,19 +34,39 @@ use Illuminate\Support\Facades\Schema;
 |
 */
 
+// User Đăng nhập
+Route::get('login', [UserController::class, 'login'])->middleware('guest')->name('login');
 
-Route::get('login', [HomeController::class, 'login'])->middleware('guest')->name('login');
+Route::post('login', [UserController::class, 'login_user'])->middleware('my_verified')->name('post.login');
 
-Route::get('register', [HomeController::class, 'register'])->name('register');
+// User Đăng ký
+Route::get('register', [RegisterController::class, 'register'])->name('register');
 
-Route::get('forgot_password', [HomeController::class, 'forgot_password'])->name('forgot_password');
+Route::post('register', [RegisterController::class, 'register_user'])->name('post.register');
 
+Route::get('verify-email/{id}', [RegisterController::class, 'verifyEmail'])->name('verify-email');
+
+
+
+// Forgot Pass
+Route::get('forgot_password', [RegisterController::class, 'forgot_password'])->name('forgot_password');
+
+Route::post('forgot_password', [RegisterController::class,'forgotPassword'])->name('post.forgotPassword');
+
+Route::get('newPassword/{id}', [RegisterController::class, 'ShowNewPassword'])->name('show.newPassword');
+
+Route::post('newPassword/{id}', [RegisterController::class,'NewPassword'])->name('post.newPassword');
+
+
+
+
+// Logout
 Route::get('logout',[UserController::class,'logout'])->middleware('auth')->name('get.logout');
 
 // Route::get('home', [HomeController::class, 'home'])->name('home');
 
 
-Route::post('login', [UserController::class, 'login_user'])->name('post.login');
+
 
 // quyền user được học các bài học trên pages
  Route::middleware(['checklogin','auth'])->group(function () {
@@ -78,4 +105,18 @@ Route::post('login', [UserController::class, 'login_user'])->name('post.login');
 //     return view('pages.user');
 // });
 
+// Route::get('verifyEmail', function()
+// {
+//     $data = new stdClass();
+//     $data->name = 'Hello' ;
+//     $user = User::find('id');
+//     Mail::to($user)->send(new VerifyEmail($data));
+// });
 
+Route::get('verifyEmail_noti', function()
+{
+    // $data = new stdClass();
+    // $data->name = 'Hello' ;
+
+    Notification::route('mail', 'quangtran@gmail.com')->notify(new VerifyEmail());
+});
