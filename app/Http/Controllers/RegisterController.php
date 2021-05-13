@@ -78,7 +78,7 @@ class RegisterController extends Controller
                 return  back()->with('message', 'Không tìm thấy email, Xin vui lòng thử lại');
             }
 
-            //Sử dụng Email
+            //Sử dụng Mailable Classes
             // $user = User::query()->where('email', $request->input('email'))->first();
 
             // if($user && $user->email !== null)

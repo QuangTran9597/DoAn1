@@ -13,6 +13,7 @@ class Course extends Model
         'course_name',
         'course_title',
         'course_content',
+        'published',
     ];
 
     public function lessons()

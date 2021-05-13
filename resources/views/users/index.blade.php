@@ -7,7 +7,7 @@
     <meta name="description" content="" />
     <meta name="author" content="" />
     <title>@yield('title')</title>
-    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
+
     <!-- Font Awesome icons (free version)-->
     <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" crossorigin="anonymous"></script>
     <!-- Google fonts-->
@@ -71,9 +71,11 @@
             </div>
         </div>
     </footer>
+
+    @section('comment')
     <!-- Portfolio Modals-->
 
-   
+
 
     <!-- Modal LogOut-->
     <!-- <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"

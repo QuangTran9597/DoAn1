@@ -79,6 +79,8 @@ Route::get('logout',[UserController::class,'logout'])->middleware('auth')->name(
 
     Route::get('start-topics-vocabulary/{id}', [PageVocabularyController::class, 'start_vocabulary'])->name('start_vocabulary');
 
+    Route::get('topics-vocabulary-remember/{id}', [PageVocabularyController::class,'remember_vocabulary'])->name('remember_vocabulary');
+
  });
 
  // quyền admin thêm sửa xóa các bài viết

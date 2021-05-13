@@ -26,7 +26,7 @@
 <body class="bg-gradient-primary">
 
     @yield('content')
-    
+
     <!-- Bootstrap core JavaScript-->
     <script src="{{asset('js/jquery.min.js')}}"></script>
     <script src="{{asset('vendor/bootstrap/bootstrap.bundle.min.js')}}"></script>

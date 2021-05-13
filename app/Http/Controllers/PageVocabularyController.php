@@ -17,4 +17,16 @@ class PageVocabularyController extends Controller
 
         return view('users.topics.start_vocabularies', compact('topics'));
     }
+
+    public function remember_vocabulary($id)
+    {
+        $topics = Topic::with('vocabularies')->findOrFail($id);
+
+        $vocabulary = Vocabulary::orderByDesc('id')->paginate(10);
+
+        // $vocabulary = Vocabulary::with('topic')->findOrFail($id);
+        // dd($topics->toArray());
+
+        return view('users.topics.remember_vocabulary', compact('topics', 'vocabulary'));
+    }
 }

@@ -74,5 +74,49 @@ div {
 .icon-vocabulary li{
     padding-left: 20px ;
 }
+.lists {
+
+}
+
+.lists .list {
+    margin: 5px;
+    padding: 3px;
+    display: unset;
+}
+
+.lists .caption-background .list-word {
+    background-color: #F3F3F3;
+    border-radius: 5px;
+    padding: 5px 10px;
+    text-align: center;
+    cursor: move;
+    display: block;
+    line-height: 20px;
+    font-size: 20px;
+    margin-bottom: 5px;
+    margin-top: 2px;
+    position: relative;
+
+}
+.list .caption-background{
+    width: 180px;
+    height: 40px;
+    margin-top: -40px;
+    opacity: 0.62;
+    position: absolute;
+    background-color: #151515;
+    z-index: 10;
+    text-align: center;
+    margin-left: 12px;
+    display: none;
+
+}
+.vocabularyImg {
+    width: 180px;
+    border: 2px solid #646464;
+    padding: 2px;
+    margin: 7px;
+    border-radius: 5px;
+}
 
 
