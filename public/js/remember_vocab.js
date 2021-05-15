@@ -1,4 +1,4 @@
-const list_words = document.querySelectorAll('.list-word');
+    const list_words = document.querySelectorAll('.list-word');
     const lists = document.querySelectorAll('.caption-background');
 
     let draggedItem = null;
@@ -7,7 +7,7 @@ const list_words = document.querySelectorAll('.list-word');
         const word = list_words[i];
 
         word.addEventListener('dragstart', function()
-        {   console.log('start');
+        {
             draggedItem = word;
             setTimeout(function(){
                 word.style.display = 'none';
@@ -16,7 +16,7 @@ const list_words = document.querySelectorAll('.list-word');
         });
 
         word.addEventListener('dragend', function()
-        {   console.log('end');
+        {
             setTimeout(function()
             {
                 draggedItem.style.display = 'block';
@@ -39,7 +39,7 @@ const list_words = document.querySelectorAll('.list-word');
             });
 
             list.addEventListener('dragleave', function(e)
-            {   console.log('dragleave')
+            {
                 this.style.backgroundColor = 'rbga(0, 0, 0, 0.4)';
             });
 
@@ -47,26 +47,10 @@ const list_words = document.querySelectorAll('.list-word');
             {
                 console.log('drop');
                 list.append(draggedItem);
+                list.classList.add("caption-text")
                 this.style.backgroundColor = 'rbga(0, 0, 0, 0.4)';
 
             });
 
         }
     }
-
-// const list_word = document.querySelectorAll('.list-word');
-// const lists = document.querySelectorAll('.list');
-
-// //List-word Listeners
-
-// list_word.addEventListener('dragstart', dragStart);
-// list_word.addEventListener('dragend', dragEnd);
-
-// // Drag Function
-// function dragStart() {
-//     console.log('start');
-// }
-
-// function dragEnd() {
-//     console.log('end');
-// }

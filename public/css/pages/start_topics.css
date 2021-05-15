@@ -74,9 +74,6 @@ div {
 .icon-vocabulary li{
     padding-left: 20px ;
 }
-.lists {
-
-}
 
 .lists .list {
     margin: 5px;
@@ -84,7 +81,7 @@ div {
     display: unset;
 }
 
-.lists .caption-background .list-word {
+.list-word {
     background-color: #F3F3F3;
     border-radius: 5px;
     padding: 5px 10px;
@@ -99,18 +96,21 @@ div {
 
 }
 .list .caption-background{
-    width: 180px;
+    width: 178px;
     height: 40px;
-    margin-top: -40px;
-    opacity: 0.62;
+    margin-top: 100px;
+    opacity: 0.7;
     position: absolute;
-    background-color: #151515;
+    background-color: #F3F3F3;
     z-index: 10;
     text-align: center;
-    margin-left: 12px;
-    display: none;
+    margin-left: -185px;
+    display: inline-block;
+    border-radius: 5px;
+    color: black;
 
 }
+
 .vocabularyImg {
     width: 180px;
     border: 2px solid #646464;

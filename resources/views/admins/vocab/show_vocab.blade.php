@@ -31,7 +31,7 @@
                     <td> {{ $vocabulary->id}} </td>
                     <td> {{ $vocabulary->vocabulary_name}} </td>
                     <td> {{ $vocabulary->vietsub}} </td>
-                    <td><img width="150px;" src="/upload/images/vocabulary/{{ $vocabulary->vocabulary_image}}" alt=""></td>
+                    <td><img  src="/upload/images/vocabulary/{{ $vocabulary->vocabulary_image}}" alt="" style="width:180px"></td>
 
                     <td><audio controls >
                             <source src="/upload/audio/{{ $vocabulary->vocabulary_audio }}" >

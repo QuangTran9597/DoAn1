@@ -10,7 +10,7 @@ class Vocabulary extends Model
     use HasFactory;
 
     protected $fillable = [
-        'id_topic',
+        'topic_id',
         'vocabulary_name',
         'vocabulary_image',
         'vocabulary_audio',

@@ -55,7 +55,7 @@ Route::post('forgot_password', [RegisterController::class,'forgotPassword'])->na
 
 Route::get('newPassword/{id}', [RegisterController::class, 'ShowNewPassword'])->name('show.newPassword');
 
-Route::post('newPassword/{id}', [RegisterController::class,'NewPassword'])->name('post.newPassword');
+Route::post('newPassword/{id}', [RegisterController::class,'ResetPassword'])->name('post.newPassword');
 
 
 

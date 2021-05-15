@@ -26,17 +26,14 @@
                                 </span>
 
                                 @endif
-                                <form class="user" action="{{ route('post.newPassword', $user->id)}}" method="POST">
+                                <form class="user" action="{{ route('post.newPassword', $id)}}" method="POST">
                                     @csrf
-                                    <div class="form-group">
-                                        <input type="email" name="email" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Enter Email Address...">
-                                    </div>
-                                    @error('email')
-                                    <div class="arlet alert-danger">{{$message}}</div>
-                                    @enderror
+
+                                    <input type="hidden" name="id" value="{{ $id}}">
+
 
                                     <div class="form-group">
-                                        <input type="password" class="form-control form-control-user"  placeholder="Password..." name="password" >
+                                        <input type="password" class="form-control form-control-user" id="password"  placeholder="Password..." name="password" >
                                     </div>
 
                                     @error('password')
@@ -44,7 +41,7 @@
                                     @enderror
 
                                     <div class="form-group">
-                                        <input type="password" class="form-control form-control-user"  placeholder="Repeat Password..." name="repeat_password">
+                                        <input type="password" class="form-control form-control-user" id="repeate_password"  placeholder="Repeat Password..." name="repeat_password">
                                     </div>
 
                                     @error('repeat_password')

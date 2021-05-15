@@ -94,19 +94,21 @@ class RegisterController extends Controller
 
     }
 
-    public function ShowNewPassword($id)
+    public function ShowNewPassword(Request $request, $id)
     {
-        $user = User::query()->findOrFail($id);
+        if (! $request->hasValidSignature()) {
+            abort(401);
+        }
 
-        return view('layout.newPassword', compact('user'));
+        return view('layout.newPassword', compact('id'));
 
     }
 
-    public function NewPassword(NewPasswordRequest $request, $id)
+    public function ResetPassword(NewPasswordRequest $request)
     {
-        // dd($request->toArray());
+        // dd($request->all());
 
-        $user = User::query()->findOrFail($id);
+        $user = User::query()->findOrFail($request->input('id'));
 
         $user->update([
             'password' => Hash::make($request->input('password')),

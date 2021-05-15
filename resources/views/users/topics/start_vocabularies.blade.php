@@ -20,11 +20,9 @@
                     id="images" style="margin:7px; cursor:pointer; padding:2px; border: 1px solid #646464;" width="110px;"
                     src="/upload/images/vocabulary/{{ $vocabulary->vocabulary_image}}" alt="">
 
+                    <audio id="vocab-audio" src="/upload/audio/{{ $vocabulary->vocabulary_audio}}"
+                     class="vocab-audio" controls hidden >
 
-                    <audio id="vocab_audio" key="{{ $key }}" class="vocab_audio" title="{{ $vocabulary->vocabulary_name }} = {{ $vocabulary->vietsub }}"  controls hidden
-                    src="/upload/audio/{{ $vocabulary->vocabulary_audio }}" type="audio/mpeg" >
-
-                        {{ $vocabulary->vocabulary_name }}
                     </audio>
                 </div>
 
@@ -39,31 +37,27 @@
 
                     <div class="img caption" id="Vietsub_1" style="display: block;"></div>
 
-                    <audio id="vocab_audio_play" class="audio_active"
-                    src="/upload/audio/{{ $vocabulary->vocabulary_audio}}" type="audio/mpeg" controls hidden>
-                    </audio>
-
 
                 </div>
                 <div class="button-list global-float-right">
                     <div class="icon-vocabulary" style="display: flex;">
-                        <div class="button_item prev">
-                            <a class="btn btn-dark btn-social mx-2" id="prev" title="left" style="opacity: 0.2;">
+                        <div class="button_item ">
+                            <a class="btn btn-dark btn-social mx-2 prev"  style="opacity: 0.2;">
                                 <i class="fas fa-arrow-left"></i></a>
                         </div>
 
                         <div class="button_item next">
-                            <a class="btn btn-dark btn-social mx-2" id="next" title="right">
+                            <a class="btn btn-dark btn-social mx-2 next"  >
                                 <i class="fas fa-arrow-right"></i></a>
                         </div>
 
                         <div class="button_item back">
-                            <a class="btn btn-dark btn-social mx-2" id="back" title="back" style="opacity: 0.4;">
+                            <a class="btn btn-dark btn-social mx-2 back "style="opacity: 0.4;">
                                 <i class="fas fa-reply"></i></a>
                         </div>
 
                         <div class="button_item replay">
-                            <a class="btn btn-dark btn-social mx-2 replay" onclick="replay()" id="replay" title="replay">
+                            <a class="btn btn-dark btn-social mx-2 replay" onclick="replay(this)" id="replay" title="replay">
                                 <i class="fas fa-volume-up"></i>
                             </a>
                         </div>
@@ -90,21 +84,19 @@
                </div>
         </div>
     </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script type="text/javascript">
 
         document.getElementById('ImgMain').src = document.getElementById('images').src;
 
         document.getElementById('ImgMain').className = "thumb selected";
 
-        document.getElementsById('images').title = document.getElementById('Vietsub_1').innerHTML;
+        var audioElement = document.querySelectorAll(".vocab-audio");
 
-        // document.getElementById('vocab_audio_play').src = document.getElementById('vocab_audio').src;
-
-        // document.getElementById('vocab_audio_play').className = "audio_active";
-        var audioElement = document.getElementById('vocab_audio_play');
-
+        var play = null;
 
         function preview(img) {
+            // console.log(audioElement);
 
             document.getElementById('images').className = "thumb selected-thumb";
             img.className = "thumb selected";
@@ -113,14 +105,29 @@
 
             document.getElementById('Vietsub_1').innerText = img.title;
 
-            // document.getElementById('vocab_audio_play').className = "audio_active";
+            for (var i = 0; i < audioElement.length; i++) {
+                const audioPlay = audioElement[i];
 
-            // document.getElementById('vocab_audio_play').src = document.getElementById('vocab_audio').src;
+                audioPlay.addEventListener('start',function(){
+                    play = audioPlay;
+                    setTimeout(function(){
+                        audioPlay.play();
+                    },0)
+                })
 
-            // document.getElementById('vocab_audio').key = document.getElementById('images').key;
-            audioElement.className = "audio_active";
 
-            audioElement.play();
+             }
+
+            // audioElement.play();
+
+            // if(isplaying) {
+            //     audioElement.setAttribute('src', $('.img-audio.vocab-audio audio source').attr('src'));
+            //     audioElement.play();
+            //     console.log(audioElement);
+            // }
+
+
+
         }
 
 
@@ -128,18 +135,65 @@
 
     <script>
 
-        var audioElement = document.getElementById('vocab_audio_play');
+        var audioElement = document.querySelectorAll(".vocab-audio");
 
-        document.getElementById('replay').src = document.getElementById('vocab_audio_play').src;
+        var play = null;
+        function replay()
+        {
+            audioElement.forEach(play => {
+                console.log(play);
+                // play.play();
+                // for ( var i = 0; i <audioElement.lengt; i ++){
+                //     const Playaudio = audioElement[i];
+                //     console.log(Playaudio);
+                // }
+            })
+            // console.log(audioElement[2]);
+            // for (var i = 0; i < audioElement.length; i++) {
+            //     const audioPlay = audioElement[i];
 
-        function replay() {
+            //     audioPlay.addEventListener('start',function(){
+            //         play = audioPlay;
+            //         setTimeout(function(){
+            //             audioPlay.play();
+            //         },0)
+            //     })
 
-            document.getElementById('replay').src = audioElement;
-            audioElement.play();
+            //  }
         }
 
-    </script>
 
+
+        // var audioElement = document.createElement('audio');
+
+        // var audioPlay = document.querySelectorAll('.vocab_audio');
+
+        // $(document).ready(function()
+        // {
+        //     $('.img-audio').nextAll().addClass('active');
+        //     $('.prev').click(function() {
+        //         console.log('asds')
+        //         var prev =  $('.img-audio').index($('.img-audio.active'));
+        //         if ( prev != 0 ) {
+        //             $('.img-audio').removeClass('active');
+        //             $('.img-audio').nextAll(prev - 1).addClass('active');
+        //             audioElement.setAttribute('src', $('.img-audio.active audio srouce').attr('src'));
+        //             audioElement.play();
+        //         }
+        //     })
+
+        //     var $val = $('.img-audio.active audio source ').attr('src');
+
+        //     audioElement.setAttribute('src', $val);
+
+        //     $('.replay').click(function()
+        //     {
+        //         audioElement.setAttribute('src', $('.img-audio.active audio source').attr('src'));
+        //         audioElement.play();
+        //     });
+        // })
+
+    </script>
 
 </section>
 

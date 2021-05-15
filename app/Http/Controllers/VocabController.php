@@ -15,7 +15,7 @@ class VocabController extends Controller
      */
     public function index()
     {
-        $vocabularies = Vocabulary::orderByDesc('id')->paginate(3);
+        $vocabularies = Vocabulary::orderByDesc('id')->paginate(5);
 
         return view('admins.vocab.show_vocab', compact('vocabularies'));
     }
@@ -39,9 +39,9 @@ class VocabController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request->all());
+        //  dd($request->all());
 
-        $vocabularies = Vocabulary::query()->create($request->only('id_topic','vocabulary_name', 'vietsub', 'vocabulary_image', 'vocabulary_audio'));
+        $vocabularies = Vocabulary::query()->create($request->only('topic_id','vocabulary_name', 'vietsub', 'vocabulary_image', 'vocabulary_audio'));
 
         if($file = $request->file('vocabulary_image'))
         {

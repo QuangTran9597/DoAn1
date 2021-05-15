@@ -8,7 +8,7 @@
                 @csrf
                 <div class="mb-3">
                     <label for="cars">Chọn chủ đề</label>
-                    <select name="id_topic" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+                    <select name="topic_id" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
                         @foreach ($topics as $topic)
                         <option value="{{ $topic->id }}">{{ $topic->topic_name}}</option>
                         @endforeach
@@ -16,7 +16,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="vocabulary">Vocabulary-Name</label>
-                    <input type="" id="vocabulary" name="vocabulary_name" class="form-control" value="{{ old('vocabulary') }}">
+                    <input type="" name="vocabulary_name" class="form-control" value="{{ old('vocabulary') }}">
                     <span class="custom-file-control"></span>
 
                     @error('vocabulary')

@@ -6,6 +6,7 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
+use Illuminate\Support\Facades\URL;
 
 class ForgotPassEmail extends Notification implements ShouldQueue
 {
@@ -40,9 +41,12 @@ class ForgotPassEmail extends Notification implements ShouldQueue
      */
     public function toMail($notifiable)
     {
+        $url =  URL::temporarySignedRoute(
+            'show.newPassword', now()->addMinutes(30), ['id' => $notifiable->id]
+        );
         return (new MailMessage)
                     ->line('Do you forget your password? Please do click here.')
-                    ->action('Forgot Password', url('/newPassword/' . $notifiable->id))
+                    ->action('Forgot Password', $url)
                     ->line('Thank you for using our application!');
     }
 
