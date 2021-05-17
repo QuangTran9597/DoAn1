@@ -21,6 +21,7 @@
             {
                 draggedItem.style.display = 'block';
                 draggedItem = null;
+
             }, 0);
         })
 
@@ -45,9 +46,9 @@
 
             list.addEventListener('drop', function()
             {
-                console.log('drop');
+                // console.log('drop');
                 list.append(draggedItem);
-                list.classList.add("caption-text")
+                // list.classList.add("caption-text");
                 this.style.backgroundColor = 'rbga(0, 0, 0, 0.4)';
 
             });

@@ -35,6 +35,7 @@ div {
     padding: 6px;
 }
 
+
 .img-main{
     max-width: 400px;
     min-width: 350px;
@@ -119,4 +120,21 @@ div {
     border-radius: 5px;
 }
 
+.img-caption{
+    position: relative;
+}
 
+.img-caption .icon-false, .icon-true{
+    width: 80px;
+    position: absolute;
+    left: 65px;
+    top: -35px;
+    display: none;
+}
+.img-caption .correct-background {
+    height:115px;
+    background-color:aquamarine;
+    width:175px;
+    margin-left: 9px;
+    margin-bottom: -125px;
+}

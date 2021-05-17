@@ -51,7 +51,7 @@
             <!-- Footer -->
             @include('admins.footer')
             <!-- End of Footer -->
-
+            
         </div>
         <!-- End of Content Wrapper -->
 
@@ -82,7 +82,8 @@
             </div>
         </div>
     </div>
-
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="{{asset('js/jquery.min.js')}}"></script>
     <script src="{{asset('vendor/bootstrap/bootstrap.bundle.min.js')}}"></script>
 

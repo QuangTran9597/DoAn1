@@ -1,0 +1,91 @@
+.review-box {
+    width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 40px;
+    margin-bottom: 10px;
+    background: #FFF9E8;
+    border: #FFEAB3 1px solid;
+    display: table;
+}
+
+.review-star {
+    padding-right: 20px;
+    width: 100px;
+    height: 100px;
+
+}
+
+.review-star, .review-message, .review-button {
+    display: table-cell;
+    vertical-align: middle;
+    padding: 14px;
+}
+
+.review-message {
+    line-height: 24px;
+}
+.review-button {
+    width: 140px;
+    text-align: center;
+    border-left: #FFEAB3 1px solid;
+}
+
+#add-review-form-placeholder {
+    width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 40px;
+    margin-bottom: 10px;
+    background: #F8F8F8;
+    border: #E8E8E8 1px solid;
+    display: none;
+}
+
+#add-review-form-placeholder-close {
+    float: right;
+    margin: 10px;
+}
+
+#add-review-form-placeholder-title {
+    margin: 40px 40px 20px 40px;
+    /* border-bottom: 1px solid #E0E0E0; */
+}
+
+#add-review-form-placeholder form {
+    margin: 10px 40px -100px 40px;
+}
+
+dl {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+.review-form-element {
+    margin-bottom: 20px;
+}
+
+label {
+    cursor: default;
+}
+
+input[type="radio" i] {
+    background-color: initial;
+    cursor: default;
+    appearance: auto;
+    box-sizing: border-box;
+    margin: 3px 3px 0px 5px;
+    padding: initial;
+    border: initial;
+}
+
+.review-form-element {
+    margin-bottom: 20px;
+}
+
+.review-form-element {
+    margin-bottom: 20px;
+}

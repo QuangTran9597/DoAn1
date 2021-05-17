@@ -21,7 +21,6 @@ class PageVocabularyController extends Controller
     public function remember_vocabulary($id)
     {
         $topics = Topic::with('vocabularies')->findOrFail($id);
-
         $vocabulary = Vocabulary::orderByDesc('id')->paginate(10);
 
         // $vocabulary = Vocabulary::with('topic')->findOrFail($id);
