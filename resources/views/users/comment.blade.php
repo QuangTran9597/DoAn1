@@ -1,42 +1,107 @@
-<link rel="stylesheet" href="{{asset('css/pages/comment.css')}}">
-<div class="review-box">
+<!DOCTYPE html>
+<html lang="en">
 
-    <img class="review-star" src="{{ asset('img/star-vector.png')}}" >
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>@yield('title')</title>
 
-    <div class="review-message"><span>Hãy viết đánh giá của bạn về bài học này.</span>
-    Các bạn sẽ đem đến những lời khuyên vô cùng bổ ích và là nguồn động lực lớn lao cho chúng tôi!
-    Rất mong nhận được hồi âm từ các bạn. Xin cảm ơn và chúc các bạn học tốt!</div>
+    <!-- Font Awesome icons (free version)-->
+    <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" crossorigin="anonymous"></script>
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="{{asset('css/styles.css') }}" rel="stylesheet" />
+    <link rel="stylesheet" href="{{asset('css/pages/comment.css')}}">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</head>
 
-    <div class="review-button">
-        <button class="btn btn-primary review-button">Viết đánh giá </button>
+<body id="page-top">
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand js-scroll-trigger" href="#page-top"><img src="" alt="" /></a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                Menu
+                <i class="fas fa-bars ml-1"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav text-uppercase ml-auto">
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{route('page.showtopics')}}">Quay lại bài học</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{route('page.showtopics')}}">Bài Học</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="">Luyện Nghe</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="">Từ vựng</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="">Đề Thi</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="">Truyện</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ route('get.logout')}}">
+                            {{ Auth::user()->name }}<i class="fas fa-sign-out-alt "></i>LogOut</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="row" style="margin-top:85px">
+        <div class="review-comment">
+            <div class="series-review-list">
+                <h3>Tất cả đánh giá cho bài học này </h3>
+                @foreach ($comments as $comment )
+                <div class="series-review-item" id="">
+
+                    <img class="avatar-image" alt="{{ $comment->user_name }}" src="{{asset('img/no_avatar.png')}}">
+                    <div class="series-review-content">
+                        <h4 class="series-review-title">{{ $comment->title }}</h4>
+                        <div class="ucan-rating rating-40"></div>
+                        <p class="series-review-subtitle">
+                            Viết bởi <span class="series-review-user-fullname">{{ $comment->user_name }}</span>,
+                            {{ $comment->created_at }}
+                        </p>
+                        <div class="series-review-messages">
+                            {{ $comment->content }}
+                        </div>
+                    </div>
+                </div>
+                @endforeach
+            </div>
+        </div>
     </div>
-</div>
 
-<div id="add-review-form-placeholder" style="display: block;">
-    <img id="add-review-form-placeholder-close" src="/shark/public/img/global/delete.png">
-    <h3 id="add-review-form-placeholder-title">Viết nhận xét của bạn về bài học <span>"Vocabulary: In the market"</span></h3>
-    <form id="add-review-form" enctype="application/x-www-form-urlencoded" action="/shark/public/library/study/add-review/id/6023" method="post"><dl class="zend_form">
-<div class="review-form-element"><span id="rating-label"><label class="review-form-element-label required">Đánh giá</label></span>
+    <footer class="footer py-4">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-4 text-lg-left">English Website For Kids</div>
+                <div class="col-lg-4 my-3 my-lg-0">
+                    <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-twitter"></i></a>
+                    <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-linkedin-in"></i></a>
+                    <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-youtube"></i></a>
+                    <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-instagram"></i></a>
+                </div>
+                <div class="col-lg-4 text-lg-right">
+                    <a class="mr-3" href="#!">Privacy Policy</a>
+                    <a href="#!">Terms of Use</a>
+                </div>
+            </div>
+        </div>
+    </footer>
 
-<label for="rating-1"><input type="radio" name="rating" id="rating-1" value="1">1 sao (tệ)</label> <label for="rating-2"><input type="radio" name="rating" id="rating-2" value="2">2 sao (bình thường)</label> <label for="rating-3"><input type="radio" name="rating" id="rating-3" value="3">3 sao (tạm được)</label> <label for="rating-4"><input type="radio" name="rating" id="rating-4" value="4">4 sao (tốt)</label> <label for="rating-5"><input type="radio" name="rating" id="rating-5" value="5">5 sao (tuyệt vời)</label></div>
-<div class="review-form-element"><span id="title-label"><label class="review-form-element-label required">Tiêu đề</label></span>
+    <!-- Bootstrap core JS-->
 
-<input type="text" name="title" id="title" value="" size="40"></div>
-<div class="review-form-element"><span id="content-label"><label class="review-form-element-label required">Nội dung</label></span>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
 
-<textarea name="content" id="content" cols="40" rows="6"></textarea></div>
+    <!-- Third party plugin JS-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+    <!-- Contact form JS-->
+    <script src="{{ asset('assets/mail/jqBootstrapValidation.js') }}"></script>
+    <script src="{{ asset('assets/mail/contact_me.js') }}"></script>
+    <!-- Core theme JS-->
+    <script src="{{ asset('js/scripts.js') }}"></script>
+</body>
 
-<input type="submit" name="add_review_submit" id="add_review_submit" value="Viết đánh giá" title="Gửi nhận xét của bạn" class="frontend-blue-button">
-<div class="review-form-element"><span id="creator_id-label">&nbsp;</span>
+</html>
 
-<input type="hidden" name="creator_id" value="711426" id="creator_id"></div>
-<div class="review-form-element"><span id="organization_id-label">&nbsp;</span>
-
-<input type="hidden" name="organization_id" value="1" id="organization_id"></div>
-<div class="review-form-element"><span id="item_id-label">&nbsp;</span>
-
-<input type="hidden" name="item_id" value="977" id="item_id"></div>
-<div class="review-form-element"><span id="item_table-label">&nbsp;</span>
-
-<input type="hidden" name="item_table" value="series" id="item_table"></div></dl></form>    <img src="/shark/public/img/icons/ajax-loader.gif" id="write-series-review-box-loader">
-</div>

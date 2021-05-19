@@ -24,6 +24,11 @@ class User extends Authenticatable
         'email_verified_at',
     ];
 
+    public function comments()
+    {
+        return $this->belongsToMany(Comment::class);
+    }
+
     /**
      * The attributes that should be hidden for arrays.
      *

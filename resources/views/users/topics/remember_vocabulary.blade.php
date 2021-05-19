@@ -44,8 +44,10 @@
             <div class="col" style="display: grid">
                 <div class="btn">
                     <a class="btn btn-primary btn-check" style="width: 100px; margin:20px;">Check</a>
-                    <a class="btn btn-primary btn-answer" style="width: 100px; margin:20px;">Answer</a>
+
                     <a class="btn btn-primary btn-doAgain" style="width: 100px; margin:20px;">Do Again</a>
+
+                    <a class="btn btn-primary btn-next-topics" href="{{route('random-vocabulary', $topics->id) }}" style="width: 100px; margin:20px;">Next</a>
                 </div>
             </div>
         </div>
@@ -64,25 +66,31 @@
         </div>
     </div>
 
-    <div id="add-review-form-placeholder" style="display: block;">
-        <img id="add-review-form-placeholder-close" src="/shark/public/img/global/delete.png">
-        <h3 id="add-review-form-placeholder-title">Viết nhận xét của bạn về bài học <span>"Vocabulary: In the market"</span></h3>
-        <form id="add-review-form" enctype="application/x-www-form-urlencoded" action="/shark/public/library/study/add-review/id/6023" method="post">
+    <div id="add-review-form-placeholder" style="display: none;">
+        <img id="add-review-form-placeholder-close" src="{{ asset('img/delete.png')}}">
+        <h3 id="add-review-form-placeholder-title">Viết nhận xét của bạn về bài học: <span>{{ $topics->topic_name }}</span></h3>
+        <form id="add-review-form" action="" method="POST">
+        @csrf
             <dl class="zend_form">
+
                 <div class="review-form-element"><span id="rating-label"><label class="review-form-element-label required">Đánh giá</label></span>
 
-                    <label for="rating-1"><input type="radio" name="rating" id="rating-1" value="1">1 sao (tệ)</label> <label for="rating-2"><input type="radio" name="rating" id="rating-2" value="2">2 sao (bình thường)</label> <label for="rating-3"><input type="radio" name="rating" id="rating-3" value="3">3 sao (tạm được)</label> <label for="rating-4"><input type="radio" name="rating" id="rating-4" value="4">4 sao (tốt)</label> <label for="rating-5"><input type="radio" name="rating" id="rating-5" value="5">5 sao (tuyệt vời)</label>
+                    <label for="rating-1"><input type="radio" name="rating" id="rating-1" value="1">1 sao (tệ)</label>
+                    <label for="rating-2"><input type="radio" name="rating" id="rating-2" value="2">2 sao (bình thường)</label>
+                    <label for="rating-3"><input type="radio" name="rating" id="rating-3" value="3">3 sao (tạm được)</label>
+                    <label for="rating-4"><input type="radio" name="rating" id="rating-4" value="4">4 sao (tốt)</label>
+                     <label for="rating-5"><input type="radio" name="rating" id="rating-5" value="5">5 sao (tuyệt vời)</label>
                 </div>
-                <div class="review-form-element"><span id="title-label"><label class="review-form-element-label required">Tiêu đề</label></span>
-
-                    <input type="text" name="title" id="title" value="" size="40">
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Tiêu đề</label>
+                    <input type="text" class="form-control" id="" placeholder="">
+                    </div>
+                    <div class="mb-3">
+                    <label for="exampleFormControlTextarea1" class="form-label">Nội dung</label>
+                    <textarea class="form-control" id="" rows="3"></textarea>
                 </div>
-                <div class="review-form-element"><span id="content-label"><label class="review-form-element-label required">Nội dung</label></span>
 
-                    <textarea name="content" id="content" cols="40" rows="6"></textarea>
-                </div>
-
-                <input type="submit" name="add_review_submit" id="add_review_submit" value="Viết đánh giá" title="Gửi nhận xét của bạn" class="frontend-blue-button">
+                <button type="submit" class="btn btn-secondary">Gửi đánh giá</button>
                 <div class="review-form-element"><span id="creator_id-label">&nbsp;</span>
 
                     <input type="hidden" name="creator_id" value="711426" id="creator_id">
@@ -100,7 +108,7 @@
                     <input type="hidden" name="item_table" value="series" id="item_table">
                 </div>
             </dl>
-        </form> <img src="/shark/public/img/icons/ajax-loader.gif" id="write-series-review-box-loader">
+        </form>
     </div>
 
 </section>
@@ -135,6 +143,10 @@
         var scores = null;
         var count = null;
         $('.btn-check').click(function() {
+            var audioCheck = document.createElement('audio');
+            audioCheck.setAttribute('src', 'http://localhost:8000/upload/check.mp3');
+            audioCheck.play();
+
             $('.vocabularyImg').each(function() {
 
                 checkImg = parseInt($(this).attr('data-id'));
@@ -159,7 +171,6 @@
                 }
 
             });
-
             swal({
                 title: "Điểm số của bạn là: " + count + '/' + total,
                 text: "Bạn có muốn làm lại bài tập không? Click Do Again!",
@@ -173,6 +184,13 @@
             location.reload();
         });
 
+        $('.review-button').click(function() {
+            $('#add-review-form-placeholder').show()
+        })
+        $('.btn-next-topics').click(function(){
+            localStorage.removeItem("clickcount");
+
+        })
     })
 </script>
 

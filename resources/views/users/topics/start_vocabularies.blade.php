@@ -70,7 +70,15 @@
             </div>
         </div>
     </div>
+    @if(session('message'))
+        <span align="center" style="color:darkcyan; " class="notification alert-danger">
+            <h5>{{ session('message')}} </h5>
+            <a href="{{ route('review-comments') }}" class="btn btn-primary">Xem đánh giá</a>
 
+        </span>
+
+
+    @endif
     <div class="review-box">
 
         <img class="review-star" src="{{ asset('img/star-vector.png')}}">
@@ -84,111 +92,110 @@
         </div>
     </div>
 
-    <div id="add-review-form-placeholder" style="display: block;">
-        <img id="add-review-form-placeholder-close" src="{{ asset('img/delete.png')}}">
+    <div id="add-review-form-placeholder" class="review-from" style="display: none;">
+        <img id="add-review-form-placeholder-close" class="review-close" src="{{ asset('img/delete.png')}}">
         <h3 id="add-review-form-placeholder-title">Viết nhận xét của bạn về bài học: <span>{{ $topics->topic_name }}</span></h3>
-        <form id="add-review-form" action="" method="POST">
-        @csrf
-            <dl class="zend_form">
-                <div class="review-form-element"><span id="rating-label"><label class="review-form-element-label required">Đánh giá</label></span>
 
+        <form id="add-review-form" action="{{ route('post.Comment_topic', $topics->id)}}" method="POST">
+            @csrf
+            <dl class="zend_form">
+
+                <div class="review-form-element" name="rating"><span id="rating-label">
+
+                        <label class="review-form-element-label required">Đánh giá</label></span>
                     <label for="rating-1"><input type="radio" name="rating" id="rating-1" value="1">1 sao (tệ)</label>
                     <label for="rating-2"><input type="radio" name="rating" id="rating-2" value="2">2 sao (bình thường)</label>
                     <label for="rating-3"><input type="radio" name="rating" id="rating-3" value="3">3 sao (tạm được)</label>
                     <label for="rating-4"><input type="radio" name="rating" id="rating-4" value="4">4 sao (tốt)</label>
-                     <label for="rating-5"><input type="radio" name="rating" id="rating-5" value="5">5 sao (tuyệt vời)</label>
+                    <label for="rating-5"><input type="radio" name="rating" id="rating-5" value="5">5 sao (tuyệt vời)</label>
                 </div>
                 <div class="mb-3">
                     <label for="exampleFormControlInput1" class="form-label">Tiêu đề</label>
-                    <input type="email" class="form-control" id="" placeholder="">
-                    </div>
-                    <div class="mb-3">
-                    <label for="exampleFormControlTextarea1" class="form-label">Nội dung</label>
-                    <textarea class="form-control" id="" rows="3"></textarea>
+                    <input type="text" class="form-control" id="" placeholder="" name="title">
                 </div>
+                <div class="mb-3">
+                    <label for="exampleFormControlTextarea1" class="form-label">Nội dung</label>
+                    <textarea class="form-control" id="" rows="3" name="content"></textarea>
+                </div>
+                <input type="hidden" name="topic_id" value="{{ $topics->id }}">
+                <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
+                <input type="hidden" name="user_name" value="{{ Auth::user()->name }}">
+
 
                 <button type="submit" class="btn btn-secondary">Gửi đánh giá</button>
-                <div class="review-form-element"><span id="creator_id-label">&nbsp;</span>
-
-                    <input type="hidden" name="creator_id" value="711426" id="creator_id">
-                </div>
-                <div class="review-form-element"><span id="organization_id-label">&nbsp;</span>
-
-                    <input type="hidden" name="organization_id" value="1" id="organization_id">
-                </div>
-                <div class="review-form-element"><span id="item_id-label">&nbsp;</span>
-
-                    <input type="hidden" name="item_id" value="977" id="item_id">
-                </div>
-                <div class="review-form-element"><span id="item_table-label">&nbsp;</span>
-
-                    <input type="hidden" name="item_table" value="series" id="item_table">
-                </div>
             </dl>
-        </form> 
+        </form>
     </div>
 
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function() {
-            var audioElement = document.createElement('audio');
-            // $('.selected-thumb').first().addClass('active');
-            $('.selected').first().addClass('show');
-            $('.selected').first().css({
-                display: "block"
-            });
-            $('.selected-thumb').click(function(e) {
-
-                e.preventDefault();
-                $('.flashcard-outer .selected.show').attr('src', $(this).attr('src'));
-                $('.flashcard-outer div').text($(this).attr('title'));
-                $('.flashcard-outer .show').css({
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                var audioElement = document.createElement('audio');
+                // $('.selected-thumb').first().addClass('active');
+                $('.selected').first().addClass('show');
+                $('.selected').first().css({
                     display: "block"
                 });
+                $('.selected-thumb').click(function(e) {
 
-                // img_key = $(this).attr("img_key");
-                // audio_key = $('.vocab-audio').attr("audio_key");
+                    e.preventDefault();
+                    $('.flashcard-outer .selected.show').attr('src', $(this).attr('src'));
+                    $('.flashcard-outer div').text($(this).attr('title'));
+                    $('.flashcard-outer .show').css({
+                        display: "block"
+                    });
 
-                console.log($(this).parent().find('.vocab-audio').attr('src'));
-                var audio = $(this).parent().find('.vocab-audio').attr('src');
+                    // img_key = $(this).attr("img_key");
+                    // audio_key = $('.vocab-audio').attr("audio_key");
 
-                audioElement.setAttribute('src', audio);
-                audioElement.play();
-            });
+                    console.log($(this).parent().find('.vocab-audio').attr('src'));
+                    var audio = $(this).parent().find('.vocab-audio').attr('src');
 
-            var cur = $('.selected.show');
-            cur.css({
-                background: "#f99"
-            });
-            $('.prev').click(function() {
+                    audioElement.setAttribute('src', audio);
+                    audioElement.play();
+                });
+
+                var cur = $('.selected.show');
+                cur.css({
+                    background: "#f99"
+                });
+                $('.prev').click(function() {
 
 
-                console.log(cur);
-                if (cur != 0) {
+                    console.log(cur);
+                    if (cur != 0) {
 
-                    $('.selected').removeClass('show');
+                        $('.selected').removeClass('show');
 
-                    $('.selected').eq(cur - 1).addClass('show');
+                        $('.selected').eq(cur - 1).addClass('show');
 
-                    // console.log($('.seclected').eq( - 1).addClass('show'));
-                    // // $('.seclected .show').css({display: 'block'});
-                }
+                        // console.log($('.seclected').eq( - 1).addClass('show'));
+                        // // $('.seclected .show').css({display: 'block'});
+                    }
+                })
+
+                // $('.prev').click(function() {
+                //     var cur = $('.selected').first($('.selected.show'));
+                //     if (cur != 0) {
+                //         console.log($('.selected').first($('.selected.show')).attr('src'));
+
+                //         $('.selected').eq(cur - 1).addClass('show');
+                //         // audioElement.setAttribute('src', $('.item.active audio source').attr('src'));
+                //         // audioElement.play();
+                //     }
+                // });
+
+                $('.review-button').click(function() {
+                    $('#add-review-form-placeholder').show();
+                })
+
+                $('.review-close').click(function() {
+
+                    $('.review-from').hide();
+                })
+
             })
-
-            // $('.prev').click(function() {
-            //     var cur = $('.selected').first($('.selected.show'));
-            //     if (cur != 0) {
-            //         console.log($('.selected').first($('.selected.show')).attr('src'));
-
-            //         $('.selected').eq(cur - 1).addClass('show');
-            //         // audioElement.setAttribute('src', $('.item.active audio source').attr('src'));
-            //         // audioElement.play();
-            //     }
-            // });
-
-        })
-    </script>
+        </script>
 </section>
 
 @endsection

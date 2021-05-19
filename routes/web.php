@@ -1,11 +1,13 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\CourseController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DemoController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LessonController;
+use App\Http\Controllers\PagesController;
 use App\Http\Controllers\PageTopicsController;
 use App\Http\Controllers\PageVocabularyController;
 use App\Http\Controllers\PostController;
@@ -80,6 +82,13 @@ Route::get('logout',[UserController::class,'logout'])->middleware('auth')->name(
     Route::get('start-topics-vocabulary/{id}', [PageVocabularyController::class, 'start_vocabulary'])->name('start_vocabulary');
 
     Route::get('topics-vocabulary-remember/{id}', [PageVocabularyController::class,'remember_vocabulary'])->name('remember_vocabulary');
+
+    Route::get('random-vocabulary-topics/{id}', [PageVocabularyController::class, 'random_vocabulary'])->name('random-vocabulary');
+
+
+    Route::post('start-topics-vocabulary/{id}', [CommentController::class, 'PostComment'])->name('post.Comment_topic');
+
+    Route::get('review-comments', [CommentController::class, 'review_comment'])->name('review-comments');
 
  });
 

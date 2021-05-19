@@ -6,6 +6,7 @@ use App\Models\Topic;
 use App\Models\Vocabulary;
 use Illuminate\Http\Request;
 use SebastianBergmann\Environment\Runtime;
+use Illuminate\Support\Arr;
 
 class PageVocabularyController extends Controller
 {
@@ -27,5 +28,38 @@ class PageVocabularyController extends Controller
         // dd($topics->toArray());
 
         return view('users.topics.remember_vocabulary', compact('topics', 'vocabulary'));
+    }
+
+    public function  random_vocabulary($id)
+    {
+
+        // $topics = Topic::with('vocabularies')->findOrFail($id);
+
+        // $vocabulary = $topics->vocabularies->toArray();
+
+        // shuffle($vocabulary);
+
+        $topics = Topic::find($id);
+        $arr = [];
+        $vocabularies = $topics->vocabularies->random();
+
+        // dd($vocabularies->toArray());
+
+
+        //  $array = [$vocabulary];
+
+        //  $random = Arr::random($array);
+
+        // dd($random);
+
+        // dd($topics['vocabularies']->toArray());
+
+
+        // foreach ($vocabulary as $topic) {
+        //      dd($topic);
+        // }
+
+         return view('users.topics.random_topics', compact('topics', 'vocabularies' ));
+
     }
 }

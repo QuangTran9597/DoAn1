@@ -39,12 +39,14 @@
     margin-bottom: 10px;
     background: #F8F8F8;
     border: #E8E8E8 1px solid;
+    height: 450px;
     display: none;
 }
 
 #add-review-form-placeholder-close {
     float: right;
     margin: 10px;
+    cursor: pointer;
 }
 
 #add-review-form-placeholder-title {
@@ -89,3 +91,87 @@ input[type="radio" i] {
 .review-form-element {
     margin-bottom: 20px;
 }
+
+.series-review-list {
+    background: #F6F6F6;
+    /* padding: 20px; */
+    padding: 0px 20px 0px 20px;
+    /* margin-top: -20px; */
+}
+
+#series-detail-box h3 {
+    padding-top: 20px;
+    margin-top: 0px;
+}
+
+.series-review-item {
+    box-shadow: inset 0px -5px 20px 0px #f2f2f2;
+    background: white;
+    border: 1px solid #E8E8E8;
+    margin-bottom: 10px;
+    padding: 20px 20px 10px 20px;
+    display: table;
+    width: 520px;
+}
+
+.avatar-image {
+    width: 40px;
+    margin-right: 20px;
+    border: 2px solid white;
+    border-radius: 3px;
+    box-shadow: 0 0 6px rgb(0 0 0 / 30%);
+}
+
+.avatar-image, .series-review-content {
+    display: table-cell;
+    vertical-align: top;
+}
+
+.series-review-content {
+    width: 450px;
+}
+
+.series-review-title {
+    margin-top: -6px;
+    margin-bottom: 10px;
+    padding: 0px;
+    color: #B00000;
+}
+
+.series-review-item .ucan-rating {
+    float: right;
+    margin-top: -30px;
+}
+
+.series-review-subtitle {
+    /* font-size: 11px; */
+    padding-top: 0px;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    color: #888;
+    font-style: italic;
+}
+
+.series-review-user-fullname {
+    /* color: #008CD2; */
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.series-review-messages {
+    text-align: justify;
+    /* color: #333; */
+    padding-top: 0px;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+    margin-top: 6px;
+}
+
+.review-comment {
+    margin-top: 30px;
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+

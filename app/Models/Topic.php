@@ -26,4 +26,9 @@ class Topic extends Model
     {
         return $this->hasMany(Vocabulary::class);
     }
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
 }
