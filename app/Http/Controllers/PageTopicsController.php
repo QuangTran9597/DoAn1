@@ -12,7 +12,10 @@ class PageTopicsController extends Controller
     public function show_topics()
     {
         $lessons = Lesson::all();
-        return view('users.topics', compact('lessons'));
+
+        $less = Lesson::query()->where('id',1)->get();
+
+        return view('users.topics', compact('lessons', 'less'));
     }
 
     public function start_topics($id)

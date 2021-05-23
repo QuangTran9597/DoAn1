@@ -74,33 +74,17 @@
             fileReader.readAsDataURL(fileToLoad);
         }
     }
-</script>
 
-<!-- <script type="text/javascript">
-    function AudioFileAsURL() {
-        var fileAudio = document.getElementById('vocabulary_audio').files;
-        if (fileAudio.length > 0) {
-            var fileToload = fileAudio[0];
-            var fileReader = new FileReader();
-            fileReader.onload = function(fileLoaderEvent) {
-                var srcData = fileLoaderEvent.target.result;
-                var newAudio = document.createElement('audio');
-                newAudio.src = srcData;
-                document.getElementById('audio').innerHTML = newAudio.outerHTML;
-            }
-            fileReader.readAsDataURL(fileToload);
-        }
-    }
-</script> -->
-
-<!-- <script type="text/javascript">
     function handleFiles(event) {
+
         var files = event.target.files;
         $('#audio').show();
-        $("#src").attr("src", URL.createObjectURL(file[0]));
+        $("#src").attr("src", URL.createObjectURL(files[0]));
         document.getElementById("audio").load();
     }
+
     document.getElementById("vocabulary_audio").addEventListener("change", handleFiles, false);
-</script> -->
+</script>
+
 
 @endsection

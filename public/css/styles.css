@@ -10119,11 +10119,12 @@ header.masthead {
   padding-bottom: 6rem;
   text-align: center;
   color: #fff;
-  background-image: url("../assets/img/english-bg2.jpg");
+  background-image: url("../assets/img/bg-3.jpg");
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-position: center center;
   background-size: cover;
+
 }
 header.masthead .masthead-subheading {
   font-size: 1.5rem;

@@ -14,7 +14,7 @@ class PageVocabularyController extends Controller
     {
        $topics = Topic::with('vocabularies')->findOrFail($id);
 
-        // dd($topics);
+        //  dd($topics->toArray());
 
         return view('users.topics.start_vocabularies', compact('topics'));
     }
@@ -33,31 +33,19 @@ class PageVocabularyController extends Controller
     public function  random_vocabulary($id)
     {
 
-        // $topics = Topic::with('vocabularies')->findOrFail($id);
-
-        // $vocabulary = $topics->vocabularies->toArray();
-
-        // shuffle($vocabulary);
-
         $topics = Topic::find($id);
+
         $arr = [];
+
         $vocabularies = $topics->vocabularies->random();
 
         // dd($vocabularies->toArray());
 
-
-        //  $array = [$vocabulary];
+        //  $array = [$vocabularies];
 
         //  $random = Arr::random($array);
 
-        // dd($random);
-
-        // dd($topics['vocabularies']->toArray());
-
-
-        // foreach ($vocabulary as $topic) {
-        //      dd($topic);
-        // }
+        // dd($random->toArray());
 
          return view('users.topics.random_topics', compact('topics', 'vocabularies' ));
 

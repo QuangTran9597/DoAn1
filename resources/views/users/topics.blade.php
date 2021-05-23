@@ -6,8 +6,12 @@
 <section class="page-section bg-light" id="portfolio">
     <div class="container">
         <div class="text-center">
-            <h2 class="section-heading text-uppercase">Portfolio</h2>
-            <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+            @foreach ($less as $less1 )
+                <h2 class="section-heading text-uppercase">{{ $less1->lesson_name }}</h2>
+                <h3 class="section-subheading text-muted" style="margin-bottom: 20px;">{{ $less1->lesson_title }}</h3>
+                <h3 class="section-subheading text-muted">{{ $less1->lesson_content }}</h3>
+            @endforeach
+
         </div>
         <div class="row">
             @foreach ($lessons as $lesson )

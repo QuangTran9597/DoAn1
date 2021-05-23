@@ -31,4 +31,9 @@ class Topic extends Model
     {
         return $this->hasMany(Comment::class);
     }
+
+    public function listens()
+    {
+        return $this->hasMany(Listen::class);
+    }
 }

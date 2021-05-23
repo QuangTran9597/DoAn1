@@ -99,6 +99,26 @@
             </li>
 
             <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePagestwo"
+                    aria-expanded="true" aria-controls="collapsePages">
+                    <i class="fas fa-headphones-alt"></i>
+                    <span>Quản lý bài nghe</span>
+                </a>
+                <div id="collapsePagestwo" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header"></h6>
+                        <a class="collapse-item" href="{{ route('listen.index')}}">Danh sách bài nghe</a>
+                        <a class="collapse-item" href="{{route('listen.create')}}">Thêm bài nghe</a>
+                        <a class="collapse-item" href="{{route('word_true.index')}}">Danh sách từ đúng</a>
+                        <a class="collapse-item" href="{{route('word_true.create')}}">Thêm từ đúng</a>
+                        <a class="collapse-item" href="{{route('word_false.index')}}">Danh sách từ sai</a>
+                        <a class="collapse-item" href="{{route('word_false.create')}}">Thêm từ sai</a>
+                    </div>
+                </div>
+            </li>
+
+
+            <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePagesthree"
                     aria-expanded="true" aria-controls="collapsePages">
                     <i class="fas fa-users"></i>

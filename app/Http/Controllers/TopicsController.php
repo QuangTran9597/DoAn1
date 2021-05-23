@@ -18,7 +18,7 @@ class TopicsController extends Controller
      */
     public function index()
     {
-        $topics = Topic::orderByDesc('id')->paginate(2);
+        $topics = Topic::orderByDesc('id')->paginate(3);
         return view('admins.topics.show_topics', compact('topics'));
     }
 

@@ -32,7 +32,7 @@
                     <td> {{ $topic->topic_name }} </td>
                     <td> {{ $topic->topic_title}} </td>
                     <td> {{ $topic->topic_content}} </td>
-                    <td><img width="130px" src="/upload/images/topics/{{$topic->topic_image}}" alt=""></td>
+                    <td><img style="height: 130px;" src="/upload/images/topics/{{$topic->topic_image}}" alt=""></td>
 
                     <td class="center"><i class="fa fa-pencil fa-fw"></i>
                         <a href="{{ route('topics.edit', $topic->id)}} " class="btn btn-success">Edit</a>

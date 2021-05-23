@@ -9,6 +9,7 @@
     <div class="container">
         <div class="text-center">
             <h2 class="section-heading text-uppercase" align="center">Topic: {{ $topics->topic_name }}</h2>
+            <h3 class="section-subheading text-muted">{{ $topics->topic_content }}</h3>
         </div>
         <div class="row">
             <div class="random-vocabulary">
@@ -66,7 +67,7 @@
                 <div class="btn">
                     <a class="btn btn-primary btn-doAgain">Next Question</a>
 
-                    <a class="btn btn-primary btn-finish">Hoàn Thành </a>
+                    <a class="btn btn-primary btn-finish" href="{{route('page.showtopics')}}">Hoàn Thành </a>
                 </div>
             </div>
         </div>
@@ -97,7 +98,6 @@
 
                     e.preventDefault();
 
-
                     dataImg = parseInt($(this).attr('data-id'));
 
                     dataImgTrue = parseInt($('.word-true').attr('data-id'));
@@ -124,9 +124,9 @@
                                 buttons: true,
                                 // dangerMode: true,
                             }),
-                            function() {
-                                parent.window.location.reload();
-                            }
+                            // function() {
+                            //     parent.window.location.reload();
+                            // }
                         parent.window.location.reload();
                     } else {
 

@@ -6,8 +6,9 @@
 <link rel="stylesheet" href="{{asset('css/pages/start_topics.css')}}">
 <link rel="stylesheet" href="{{asset('css/pages/comment.css')}}">
 <section class="page-section bg-light" style="padding:30px;">
-    <div class="container" id="#tab1-content">
-        <h2 class="section-heading text-uppercase" align="center">Topic: {{ $topics->topic_name }}</h2>
+    <div class="container" id="#tab1-content" style="text-align: center;">
+        <h2 class="section-heading text-uppercase">Topic: {{ $topics->topic_name }}</h2>
+        <h3 class="section-subheading text-muted">{{ $topics->topic_title }}</h3>
 
         <div class="row ">
 
@@ -17,7 +18,7 @@
                     @foreach ($topics->vocabularies as $key => $vocabulary )
 
                     <div class="col col-sm-3 img-audio">
-                        <img class="thumb selected-thumb" img_key="{{ $key }}" title="{{ $vocabulary->vocabulary_name }} = {{ $vocabulary->vietsub }}" id="images" style=" margin:7px; cursor:pointer; padding:2px; border: 1px solid #646464;" width="110px;" src="/upload/images/vocabulary/{{ $vocabulary->vocabulary_image}}" alt="">
+                        <img class="thumb selected-thumb" img_key="{{ $key }}" title="{{ $vocabulary->vocabulary_name }} = {{ $vocabulary->vietsub }}" id="images" src="/upload/images/vocabulary/{{ $vocabulary->vocabulary_image}}" alt="">
 
                         <audio id="vocab-audio" audio_key="{{ $key }}" src="/upload/audio/{{ $vocabulary->vocabulary_audio}}" class="vocab-audio" controls hidden type="audi/mpeg">
 
@@ -28,9 +29,16 @@
                 </div>
             </div>
             <div class="col col-sm-6" id="flashcard-area">
-                <div class="flashcard-outer">
+                <div class="flashcard-outer big-img-audio">
                     @foreach ($topics->vocabularies as $key => $vocabulary )
-                    <img class="thumb selected " style="display:none; max-width: 400px; min-width: 350px; cursor: pointer; padding: 3px; border: 2px solid #646464; margin: 3px; margin-left:45px;" id="ImgMain" src="/upload/images/vocabulary/{{ $vocabulary->vocabulary_image}}" alt="">
+
+                    <div class="image-audio">
+                        <img class="selected " id="ImgMain" img_key="{{ $key }}" title="{{ $vocabulary->vocabulary_name }} = {{ $vocabulary->vietsub }}" src="/upload/images/vocabulary/{{ $vocabulary->vocabulary_image}}" alt="">
+
+
+                        <audio class="audio-img" audio_key="{{ $key }}" src="/upload/audio/{{ $vocabulary->vocabulary_audio}}" controls hidden type="audi/mpeg">
+                        </audio>
+                    </div>
 
                     @endforeach
                     <div class="img caption" id="Vietsub_1" style="display: block;"></div>
@@ -52,7 +60,7 @@
                             <i class="fas fa-volume-up"></i>
                         </a>
 
-                        <a class="btn btn-dark btn-social mx-2" id="microphone" style="opacity: 0.8;">
+                        <a class="btn btn-dark btn-social mx-2 microphone " style="opacity: 0.8;">
                             <i class="fas fa-microphone"></i></a>
                     </div>
                 </div>
@@ -71,11 +79,11 @@
         </div>
     </div>
     @if(session('message'))
-        <span align="center" style="color:darkcyan; " class="notification alert-danger">
-            <h5>{{ session('message')}} </h5>
-            <a href="{{ route('review-comments') }}" class="btn btn-primary">Xem đánh giá</a>
+    <span align="center" style="color:darkcyan; " class="notification alert-danger">
+        <h5>{{ session('message')}} </h5>
+        <a href="{{ route('review-comments') }}" class="btn btn-primary">Xem đánh giá</a>
 
-        </span>
+    </span>
 
 
     @endif
@@ -127,75 +135,75 @@
         </form>
     </div>
 
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script type="text/javascript">
-            $(document).ready(function() {
-                var audioElement = document.createElement('audio');
-                // $('.selected-thumb').first().addClass('active');
-                $('.selected').first().addClass('show');
-                $('.selected').first().css({
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            var audioElement = document.createElement('audio');
+            // $('.selected-thumb').first().addClass('active');
+            $('.selected').first().addClass('show');
+            $('.selected.show').first().css({
+                display: "block"
+            });
+
+            $('.flashcard-outer .caption').text($('.selected-thumb').attr('title'));
+
+            $('.selected-thumb').click(function(e) {
+
+                e.preventDefault();
+                $('.flashcard-outer .selected.show').attr('src', $(this).attr('src'));
+                $('.flashcard-outer .caption').text($(this).attr('title'));
+                $('.flashcard-outer .show').css({
                     display: "block"
                 });
-                $('.selected-thumb').click(function(e) {
 
-                    e.preventDefault();
-                    $('.flashcard-outer .selected.show').attr('src', $(this).attr('src'));
-                    $('.flashcard-outer div').text($(this).attr('title'));
-                    $('.flashcard-outer .show').css({
-                        display: "block"
-                    });
+                // console.log($(this).parent().find('.vocab-audio').attr('src'));
+                var audio = $(this).parent().find('.vocab-audio').attr('src');
 
-                    // img_key = $(this).attr("img_key");
-                    // audio_key = $('.vocab-audio').attr("audio_key");
+                audioElement.setAttribute('src', audio);
+                audioElement.play();
+            });
 
-                    console.log($(this).parent().find('.vocab-audio').attr('src'));
-                    var audio = $(this).parent().find('.vocab-audio').attr('src');
+            var numImgs = $('div.big-img-audio .selected').length;
 
-                    audioElement.setAttribute('src', audio);
+            $('.next').click(function() {
+
+                $('.selected').each(function() {
+                    var img = $(this).attr('src');
+                    //  console.log(img);
+                    $('.selected ').removeClass('show');
+
+                    var audio = $(this).parent().find('.audio-img').attr('src');
+                    //  console.log(audio);
+
+                });
+
+                var cur = $('.selected').index($('.selected .show'));
+                console.log(numImgs);
+
+                if( numImgs != $('.selected').length -1) {
+                    $('.selected.show').removeClass('.show');
+                    $('.selected').eq(cur + 1 ).addClass('show');
+                    audioElement.setAttribute('src', $('.selected .show').parent().find('.audio-img').attr('src'));
                     audioElement.play();
-                });
+                }
 
-                var cur = $('.selected.show');
-                cur.css({
-                    background: "#f99"
-                });
-                $('.prev').click(function() {
+            });
 
-
-                    console.log(cur);
-                    if (cur != 0) {
-
-                        $('.selected').removeClass('show');
-
-                        $('.selected').eq(cur - 1).addClass('show');
-
-                        // console.log($('.seclected').eq( - 1).addClass('show'));
-                        // // $('.seclected .show').css({display: 'block'});
-                    }
-                })
-
-                // $('.prev').click(function() {
-                //     var cur = $('.selected').first($('.selected.show'));
-                //     if (cur != 0) {
-                //         console.log($('.selected').first($('.selected.show')).attr('src'));
-
-                //         $('.selected').eq(cur - 1).addClass('show');
-                //         // audioElement.setAttribute('src', $('.item.active audio source').attr('src'));
-                //         // audioElement.play();
-                //     }
-                // });
-
-                $('.review-button').click(function() {
-                    $('#add-review-form-placeholder').show();
-                })
-
-                $('.review-close').click(function() {
-
-                    $('.review-from').hide();
-                })
-
+            $('.review-button').click(function() {
+                $('#add-review-form-placeholder').show();
             })
-        </script>
+
+            $('.review-close').click(function() {
+
+                $('.review-from').hide();
+            })
+
+        })
+
+
+    </script>
 </section>
 
 @endsection

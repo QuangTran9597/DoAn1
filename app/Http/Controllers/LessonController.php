@@ -15,7 +15,7 @@ class LessonController extends Controller
      */
     public function index()
     {
-        $lessons = Lesson::orderByDesc('id')->paginate(2);
+        $lessons = Lesson::orderByDesc('id')->paginate(3);
         return view('admins.lessons.show_lesson', compact('lessons'));
     }
 
@@ -74,7 +74,7 @@ class LessonController extends Controller
     {
         $lessons = Lesson::with('course')->findOrFail($id);
 
-        $courses = Course::all();   
+        $courses = Course::all();
 
         return view('admins.lessons.edit_lesson', compact(['lessons', 'courses']));
 

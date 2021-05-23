@@ -33,7 +33,7 @@
                 <ul class="navbar-nav text-uppercase ml-auto">
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="">Khóa Học</a></li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{route('page.showtopics')}}">Bài Học</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="">Luyện Nghe</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{route('get.start_listen')}}">Luyện Nghe</a></li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="">Từ vựng</a></li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="">Đề Thi</a></li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="">Truyện</a></li>
@@ -46,7 +46,7 @@
     <!-- Masthead-->
     <header class="masthead">
         <div class="container">
-            <div class="masthead-subheading">Welcome To Our English</div>
+            <div class="masthead-subheading" style="margin-top: 100px;">Welcome To Our English</div>
             <div class="masthead-heading text-uppercase">It's Nice To Meet You</div>
             <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#services">Tell Me More</a>
         </div>
@@ -75,7 +75,7 @@
     </footer>
 
     <!-- Bootstrap core JS-->
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
 

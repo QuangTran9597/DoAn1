@@ -1,12 +1,14 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AdminlistenController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\CourseController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DemoController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LessonController;
+use App\Http\Controllers\ListenController;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\PageTopicsController;
 use App\Http\Controllers\PageVocabularyController;
@@ -17,6 +19,8 @@ use App\Http\Controllers\UserController;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Controllers\VocabController;
+use App\Http\Controllers\WordFalseController;
+use App\Http\Controllers\WordTrueController;
 // use App\Mail\VerifyEmail;
 use Illuminate\Notifications\Events\NotificationSent;
 use Illuminate\Support\Facades\Notification;
@@ -90,6 +94,13 @@ Route::get('logout',[UserController::class,'logout'])->middleware('auth')->name(
 
     Route::get('review-comments', [CommentController::class, 'review_comment'])->name('review-comments');
 
+    Route::get('start-listen', [ListenController::class, 'start_listen'])->name('get.start_listen');
+
+    Route::get('start-listen/{id}', [ListenController::class, 'start_listen_id'])->name('start_listen_one');
+
+    Route::get('start-listen-two/{id}', [ListenController::class,'show_listen_two'])->name('start_listen_two');
+
+
  });
 
  // quyền admin thêm sửa xóa các bài viết
@@ -105,10 +116,16 @@ Route::get('logout',[UserController::class,'logout'])->middleware('auth')->name(
 
     Route::resource('course', CourseController::class);
 
+    Route::resource('listen', AdminlistenController::class);
+
+    Route::resource('word_true', WordTrueController::class);
+
+    Route::resource('word_false', WordFalseController::class);
+
  });
 
 //  Route::get('doiten', function() {
-//      Schema::rename('vocabularys', 'vocabularies');
+//      Schema::rename('listens_words', 'true');
 //  });
 
 

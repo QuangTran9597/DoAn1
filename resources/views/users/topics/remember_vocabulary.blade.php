@@ -9,6 +9,7 @@
     <div class="container">
         <div class="text-center">
             <h2 class="section-heading text-uppercase" align="center">Topic: {{ $topics->topic_name }}</h2>
+            <h3 class="section-subheading text-muted">{{ $topics->topic_content }}</h3>
         </div>
 
         <div class="row lists" style="margin-top: 20px;">
