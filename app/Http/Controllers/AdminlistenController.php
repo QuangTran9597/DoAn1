@@ -79,8 +79,6 @@ class AdminlistenController extends Controller
 
         $listens = Listen::with('topic')->findOrFail($id);
 
-        //  dd($listens->toArray());
-
         return view('admins.listens.edit_listen', compact('topics', 'listens'));
     }
 

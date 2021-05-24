@@ -2,6 +2,9 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AdminlistenController;
+use App\Http\Controllers\AdminsController;
+use App\Http\Controllers\AdminStoryController;
+use App\Http\Controllers\AdminStoryImageController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\CourseController;
 use Illuminate\Support\Facades\Route;
@@ -69,7 +72,6 @@ Route::post('newPassword/{id}', [RegisterController::class,'ResetPassword'])->na
 // Logout
 Route::get('logout',[UserController::class,'logout'])->middleware('auth')->name('get.logout');
 
-// Route::get('home', [HomeController::class, 'home'])->name('home');
 
 
 
@@ -88,7 +90,6 @@ Route::get('logout',[UserController::class,'logout'])->middleware('auth')->name(
     Route::get('topics-vocabulary-remember/{id}', [PageVocabularyController::class,'remember_vocabulary'])->name('remember_vocabulary');
 
     Route::get('random-vocabulary-topics/{id}', [PageVocabularyController::class, 'random_vocabulary'])->name('random-vocabulary');
-
 
     Route::post('start-topics-vocabulary/{id}', [CommentController::class, 'PostComment'])->name('post.Comment_topic');
 
@@ -122,6 +123,12 @@ Route::get('logout',[UserController::class,'logout'])->middleware('auth')->name(
 
     Route::resource('word_false', WordFalseController::class);
 
+    Route::resource('show_users', AdminsController::class);
+
+    Route::resource('story', AdminStoryController::class);
+
+    Route::resource('story_image', AdminStoryImageController::class);
+
  });
 
 //  Route::get('doiten', function() {
@@ -129,22 +136,16 @@ Route::get('logout',[UserController::class,'logout'])->middleware('auth')->name(
 //  });
 
 
-//  Route::get('test1', function() {
-//     return view('pages.user');
-// });
-
-// Route::get('verifyEmail', function()
-// {
-//     $data = new stdClass();
-//     $data->name = 'Hello' ;
-//     $user = User::find('id');
-//     Mail::to($user)->send(new VerifyEmail($data));
-// });
 
 Route::get('verifyEmail_noti', function()
 {
-    // $data = new stdClass();
-    // $data->name = 'Hello' ;
-
     Notification::route('mail', 'quangtran@gmail.com')->notify(new VerifyEmail());
+});
+
+Route::get('change' , function()
+{
+    Schema::table('courses' , function($table) {
+        $table->increments('id')->unsigned()->change();
+    });
+    return 11111;
 });

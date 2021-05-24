@@ -31,7 +31,7 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav text-uppercase ml-auto">
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="">Khóa Học</a></li>
+                    <!-- <li class="nav-item"><a class="nav-link js-scroll-trigger" href="">Khóa Học</a></li> -->
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{route('page.showtopics')}}">Bài Học</a></li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{route('get.start_listen')}}">Luyện Nghe</a></li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="">Từ vựng</a></li>

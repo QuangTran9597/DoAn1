@@ -56,6 +56,7 @@
                     <input type="file" id="lesson_image" name="lesson_image" class="form-control" onchange="ImagesFileAsURL()">
 
                     <br>
+
                     <div id="displayImg">
                         <!-- <img src="/upload/images/{{$lessons->lesson_image}}" alt=""> -->
                     </div>

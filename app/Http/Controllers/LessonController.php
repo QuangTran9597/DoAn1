@@ -15,7 +15,7 @@ class LessonController extends Controller
      */
     public function index()
     {
-        $lessons = Lesson::orderByDesc('id')->paginate(3);
+        $lessons = Lesson::orderByDesc('id')->paginate(5);
         return view('admins.lessons.show_lesson', compact('lessons'));
     }
 
@@ -38,7 +38,7 @@ class LessonController extends Controller
      */
     public function store(Request $request)
     {
-        //   dd($request->all());
+
         $lesson = Lesson::query()->create($request->only('course_id','lesson_name', 'lesson_title', 'lesson_content','lesson_image'));
 
         if($file = $request->file('lesson_image'))
@@ -90,11 +90,10 @@ class LessonController extends Controller
      */
     public function update(Request $request, $id)
     {
-        // dd($request->all());
+
         $lesson = Lesson::with('course')->findOrFail($id);
 
         $lesson->update($request->only('course_id', 'lesson_name', 'lesson_title', 'lesson_content', 'lesson_image'));
-
 
         if($file = $request->file('lesson_image'))
         {

@@ -39,8 +39,6 @@ class VocabController extends Controller
      */
     public function store(Request $request)
     {
-        //  dd($request->all());
-
         $vocabularies = Vocabulary::query()->create($request->only('topic_id','vocabulary_name', 'vietsub', 'vocabulary_image', 'vocabulary_audio'));
 
         if($file = $request->file('vocabulary_image'))
@@ -107,6 +105,11 @@ class VocabController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Vocabulary::destroy($id);
+    }
+
+    public function showFamily()
+    {
+        return 11111;
     }
 }

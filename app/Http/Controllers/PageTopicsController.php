@@ -21,7 +21,7 @@ class PageTopicsController extends Controller
     public function start_topics($id)
     {
         $lessons = Lesson::with('topics')->findOrFail($id);
-        //  dd($lessons->toArray());
+        
         return view('users.topics.start_topics', compact('lessons'));
     }
 }

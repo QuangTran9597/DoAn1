@@ -17,7 +17,7 @@ class CourseController extends Controller
     {
         $course = Course::orderByDesc('id')->paginate(3);
 
-        return view('admins.courses.show_courses', compact('course'));  
+        return view('admins.courses.show_courses', compact('course'));
     }
 
     /**
@@ -41,9 +41,8 @@ class CourseController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request->all());
 
-        Gate::authorize('create-courses');  // sử dụng Gate
+        Gate::authorize('create-courses');
 
         Course::query()->create($request->only('course_name', 'course_title', 'course_content', 'published'));
 

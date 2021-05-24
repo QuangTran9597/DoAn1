@@ -29,8 +29,6 @@ class WordTrueController extends Controller
     {
         $listens = Listen::all();
 
-        // dd($listens->toArray());
-
         return view('admins.listens.word_true.create_word_true', compact('listens'));
     }
 
@@ -42,8 +40,6 @@ class WordTrueController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request->toArray());
-
         Listen_word::query()->create($request->only('listen_audio_id','word_true','status_true','word_false','word_false'));
 
         return redirect()->route('word_true.index');

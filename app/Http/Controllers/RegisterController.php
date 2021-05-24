@@ -23,7 +23,6 @@ class RegisterController extends Controller
 
     public function register_user(RegisterRequest $request)
     {
-        // dd($request->all());
 
         $user = User::query()->create([
             'name' => $request->input('name'),
@@ -64,7 +63,7 @@ class RegisterController extends Controller
                 'email.email' => 'Bạn chưa nhập đúng định dạng Email',
             ]
         );
-            // Sử dụng Notification
+           
             $user = User::query()->where('email', $request->input('email'))->first();
 
             if($user && $user->email !== null) {
@@ -77,20 +76,6 @@ class RegisterController extends Controller
 
                 return  back()->with('message', 'Không tìm thấy email, Xin vui lòng thử lại');
             }
-
-            //Sử dụng Mailable Classes
-            // $user = User::query()->where('email', $request->input('email'))->first();
-
-            // if($user && $user->email !== null)
-            //  {
-            //     $data = new stdClass();
-            //     $data-> email = $user->email;
-            //     $data-> name = $user->name;
-
-            //     Mail::to($user)->send(new  VerifyEmail($data));
-
-            //     return redirect()->route('forgot_password')->with('message', 'Vui lòng kiểm tra Email');
-            // }
 
     }
 
@@ -106,7 +91,6 @@ class RegisterController extends Controller
 
     public function ResetPassword(NewPasswordRequest $request)
     {
-        // dd($request->all());
 
         $user = User::query()->findOrFail($request->input('id'));
 

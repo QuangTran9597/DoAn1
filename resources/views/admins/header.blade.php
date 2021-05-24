@@ -52,10 +52,7 @@
                 data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Các bài học</h6>
-                    <a class="collapse-item" href="">Từ vựng tiếng anh</a>
-                    <a class="collapse-item" href="">Luyện nghe tiếng anh</a>
-                    <a class="collapse-item" href="">Trò chơi tiếng anh</a>
-                    <a class="collapse-item" href="">Học tiếng anh quản phim</a>
+
                     <a class="collapse-item" href="{{route('lesson.index')}}">Danh sách bài học</a>
                     <a class="collapse-item" href="{{route('lesson.create')}}">Thêm bài học</a>
                 </div>
@@ -70,12 +67,7 @@
                 <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Các chủ đề</h6>
-                        <a class="collapse-item" href="login.html">Family</a>
-                        <a class="collapse-item" href="register.html">House</a>
-                        <a class="collapse-item" href="forgot-password.html">Vegetable</a>
-                        <a class="collapse-item" href="forgot-password.html">Weather</a>
-                        <a class="collapse-item" href="forgot-password.html">Food and drinks</a>
-                        <a class="collapse-item" href="forgot-password.html">Myhome</a>
+
                         <a class="collapse-item" href="{{route('topics.create')}}">Thêm chủ đề</a>
                         <a class="collapse-item" href="{{route('topics.index')}}">Danh sách chủ đề</a>
                     </div>
@@ -85,7 +77,7 @@
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePagesone"
                     aria-expanded="true" aria-controls="collapsePages">
-                    <i class="fas fa-fw fa-folder"></i>
+                    <i class="fas fa-id-card"></i>
                     <span>Quản lý từ vựng</span>
                 </a>
                 <div id="collapsePagesone" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
@@ -94,6 +86,12 @@
                         <a class="collapse-item" href="{{ route('vocabulary.index')}}">Danh sách từ vựng</a>
                         <a class="collapse-item" href="">Từ vựng theo chủ đề </a>
                         <a class="collapse-item" href="{{route('vocabulary.create')}}">Thêm từ vựng</a>
+                        <a class="collapse-item" href="">Family</a>
+                        <a class="collapse-item" href="register.html">House</a>
+                        <a class="collapse-item" href="forgot-password.html">Vegetable</a>
+                        <a class="collapse-item" href="forgot-password.html">Weather</a>
+                        <a class="collapse-item" href="forgot-password.html">Food and drinks</a>
+                        <a class="collapse-item" href="forgot-password.html">Myhome</a>
                     </div>
                 </div>
             </li>
@@ -117,6 +115,38 @@
                 </div>
             </li>
 
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePagesfor"
+                    aria-expanded="true" aria-controls="collapsePages">
+                    <i class="fas fa-book"></i>
+                    <span>Quản lý truyện</span>
+                </a>
+                <div id="collapsePagesfor" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header"></h6>
+                        <a class="collapse-item" href="{{ route('story.index') }}">Danh sách truyện</a>
+                        <a class="collapse-item" href="{{ route('story.create') }}">Thêm truyện</a>
+                        <a class="collapse-item" href="{{ route('story_image.index') }}">Danh sách hình ảnh</a>
+                        <a class="collapse-item" href="{{ route('story_image.create') }}">Thêm hình ảnh</a>
+                    </div>
+                </div>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePagesfive"
+                    aria-expanded="true" aria-controls="collapsePages">
+                    <i class="fas fa-comments"></i>
+                    <span>Quản lý Comment</span>
+                </a>
+                <div id="collapsePagesfive" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header"></h6>
+                        <a class="collapse-item" href="">Danh sách comments</a>
+
+                    </div>
+                </div>
+            </li>
+
 
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePagesthree"
@@ -127,19 +157,19 @@
                 <div id="collapsePagesthree" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header"></h6>
-                        <a class="collapse-item" href="">Danh sách User</a>
-                        <a class="collapse-item" href="">Thêm User</a>
+                        <a class="collapse-item" href="{{route('show_users.index')}}">Danh sách User</a>
+                        <a class="collapse-item" href="{{route('show_users.create')}}">Thêm User</a>
 
                     </div>
                 </div>
             </li>
     </li>
     <!-- Nav Item - Tables -->
-    <li class="nav-item">
+    <!-- <li class="nav-item">
         <a class="nav-link" href="tables.html">
             <i class="fas fa-fw fa-table"></i>
             <span>Tables</span></a>
-    </li>
+    </li> -->
 
     <!-- Divider -->
     <hr class="sidebar-divider d-none d-md-block">

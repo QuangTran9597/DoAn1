@@ -18,7 +18,7 @@ class TopicsController extends Controller
      */
     public function index()
     {
-        $topics = Topic::orderByDesc('id')->paginate(3);
+        $topics = Topic::orderByDesc('id')->paginate(5);
         return view('admins.topics.show_topics', compact('topics'));
     }
 
@@ -41,8 +41,6 @@ class TopicsController extends Controller
      */
     public function store(Request $request)
     {
-
-        // dd($request->all());
 
         $post  = Topic::query()->create($request->only('lesson_id', 'topic_name','topic_title', 'topic_content', 'topic_image'));
 
@@ -94,10 +92,6 @@ class TopicsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        // dd($request->all());
-        // if(! Gate::allows('update-topic', $topic)){
-        //     abort(403);
-        // }
 
         $topics = Topic::with('lesson')->findOrFail($id);
 
