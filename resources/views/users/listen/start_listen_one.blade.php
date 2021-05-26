@@ -88,7 +88,7 @@
 
         </div>
 
-        <a href="{{ route('start_listen_two', $topics->id) }}" class="next-listen">Bài tiếp</a>
+        <a href="{{ route('start_listen_two', $topics->id) }}" class="btn btn-primary next-listen">Bài tiếp</a>
     </div>
 </section>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -181,7 +181,7 @@
                     $(this).find('.true-icon').hide();
                     $(this).find('.false-icon').show();
                 }
-                // console.log(total);
+               
             });
             swal({
                     title: "Điểm số của bạn là: " + total,

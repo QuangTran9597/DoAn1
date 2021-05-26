@@ -22,11 +22,14 @@
             </div>
 
             <div class="col col-sm-10 list ">
+
                 <input type="hidden" name='total' value="{{ count($topics->vocabularies->toArray() )}} ">
+
                 @foreach ($topics->vocabularies as $key => $vocabulary )
                 <div class=" list img-caption">
 
-                    <img class="list vocabularyImg" data-id="{{ $vocabulary->id }}" title="{{ $vocabulary->vocabulary_name }}" src="/upload/images/vocabulary/{{ $vocabulary->vocabulary_image}}" />
+                    <img class="list vocabularyImg" data-id="{{ $vocabulary->id }}" title="{{ $vocabulary->vocabulary_name }}"
+                    src="/upload/images/vocabulary/{{ $vocabulary->vocabulary_image}}" />
 
                     <div class="caption-background caption-text"></div>
 
@@ -124,16 +127,6 @@
 
         words.eq(tager).before(words.eq(targer2));
     }
-
-    // var vocabularyImg = $(".list");
-    // for ( var i = 0; i < vocabularyImg.length; i++)
-    // {
-    //     var Img1 = Math.floor(Math.random() * vocabularyImg.length + 1) + 1;
-    //     var Img2 = Math.floor(Math.random() * vocabularyImg.length + 1 ) +1;
-
-    //     vocabularyImg.eq(Img1).before(vocabularyImg.eq(Img2));
-    // }
-
 
     $(document).ready(function() {
         var total = $('[name="total"]').val();

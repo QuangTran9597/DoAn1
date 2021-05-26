@@ -148,8 +148,8 @@
                 var message = String($(this).find('.message-check').attr('data'));
 
                 if (inputName === name) {
-                    $(this).find('.true-icon1').show();
-                    $(this).find('.false-icon1').hide();
+                    $('.true-icon1').show();
+                    $('.false-icon1').hide();
                     $(this).find('.name-check').css({
                         background: "limegreen"
                     });
@@ -162,16 +162,16 @@
                         background: "tomato"
                     });
 
-                    $(this).find('.true-icon1').hide();
-                    $(this).find('.false-icon1').show();
+                    $('.true-icon1').hide();
+                    $('.false-icon1').show();
 
                     diem = 0;
                     total += diem;
                 };
 
                 if (inputTelephone === phone) {
-                    $(this).find('.true-icon1').show();
-                    $(this).find('.false-icon1').hide();
+                    // $('.phone-check').find('.true-icon1').show();
+                    // $('.phone-check').find('.false-icon1').hide();
                     $(this).find('.phone-check').css({
                         background: "limegreen"
                     });
@@ -181,8 +181,8 @@
                     total += diem;
 
                 } else {
-                    $(this).find('.true-icon1').hide();
-                    $(this).find('.false-icon1').show();
+                    // $('.phone-check').find('.true-icon1').hide();
+                    // $('.phone-check').find('.false-icon1').show();
                     $(this).find('.phone-check').css({
                         background: "tomato"
                     });
@@ -193,8 +193,8 @@
                 };
 
                 if (inputMessage === message) {
-                    $(this).find('.true-icon1').show();
-                    $(this).find('.false-icon1').hide();
+                    // $('.message-check').find('.true-icon1').show();
+                    // $('.message-check').find('.false-icon1').hide();
 
                     $(this).find('.message-check').css({
                         background: "limegreen"
@@ -204,8 +204,8 @@
                     total += diem;
 
                 } else {
-                    $(this).find('.true-icon1').hide();
-                    $(this).find('.false-icon1').show();
+                    // $('.message-check').find('.true-icon1').hide();
+                    // $('.message-check').find('.false-icon1').show();
                     $(this).find('.message-check').css({
                         background: "tomato"
                     });
@@ -214,7 +214,6 @@
                     total += diem;
 
                 };
-
 
             });
             $('.answer').show();
@@ -237,8 +236,6 @@
 
             })
         });
-
-
 
     });
 

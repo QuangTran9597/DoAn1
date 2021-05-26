@@ -35,8 +35,8 @@
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{route('page.showtopics')}}">Bài Học</a></li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{route('get.start_listen')}}">Luyện Nghe</a></li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="">Từ vựng</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="">Đề Thi</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="">Truyện</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ route('show_exams') }}">Đề Thi</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ route('show_story') }}">Truyện</a></li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ route('get.logout')}}">
                             {{ Auth::user()->name }}<i class="fas fa-sign-out-alt "></i>LogOut</a></li>
                 </ul>

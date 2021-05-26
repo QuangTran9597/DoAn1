@@ -15,7 +15,6 @@ use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
-    // phân quyền admin và user
     public function login_user(LoginRequest $request)
     {
         $user = $request->only('email', 'password', 'quyen');

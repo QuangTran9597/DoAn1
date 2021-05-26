@@ -14,6 +14,7 @@ class Story extends Model
         'story_title',
         'story_content',
         'story_image',
+        'link',
     ];
 
     public function story_images()

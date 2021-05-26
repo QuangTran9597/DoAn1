@@ -41,6 +41,18 @@
                 </div>
 
                 <div class="mb-3">
+                    <label for="">Link</label>
+                    <textarea class="form-control" name="link" placeholder="" id="floatingTextarea" rows="1"></textarea>
+
+                    <span class="custom-file-control"></span>
+
+                    @error('link')
+                    <div class="arlet alert-danger">{{$message}}</div>
+                    @enderror
+                </div>
+
+
+                <div class="mb-3">
                     <label for="">Story_Image</label>
                     <input type="file" id="story_image" name="story_image" class="form-control" onchange="ImagesFileAsURL()">
 

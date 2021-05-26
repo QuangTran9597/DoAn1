@@ -1,0 +1,71 @@
+.images-random-four  img{
+    border: 1px solid black;
+    margin: 10px;
+    padding: 5px;
+
+}
+
+.form-check {
+    margin-top: auto;
+    margin-bottom: auto;
+    font-size: 20px;
+    /* background: rgb(231, 152, 106); */
+    margin-right: 10px;
+    margin-left: 10px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+input[type=checkbox] {
+    width: 30px;
+    height: 25px;
+}
+
+
+.word-audio {
+    margin: 20px;
+    text-align: center;
+}
+
+.word-audio .wordTrue {
+    border:2px solid;
+    margin: 10px;
+    font-size: larger;
+    height: 50px;
+    padding-top: 9px;
+    padding-bottom: 9px;
+    font-weight: bold;
+
+}
+
+.btn-check {
+    text-align: center;
+}
+
+.check-img , .doAgain, .answer, .story-list {
+    background-color: rgb(150, 208, 228) ;
+    width: 130px;
+    border-color: rgb(87, 140, 158) ;
+    margin: 10px;
+}
+
+.answer {
+    display: none;
+}
+
+.check-img:hover , .doAgain:hover, .answer:hover, .story-list:hover {
+    background-color: rgb(24, 75, 77);
+}
+
+.change {
+    border: 1px solid;
+    cursor: pointer;
+    margin: 5px;
+    background: rgb(201, 199, 198);
+    font-size: 15px;
+}
+
+.true-icon, .false-icon{
+    display: none;
+    width: 40px;
+}

@@ -12,7 +12,9 @@ use App\Http\Controllers\DemoController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LessonController;
 use App\Http\Controllers\ListenController;
+use App\Http\Controllers\PageExamController;
 use App\Http\Controllers\PagesController;
+use App\Http\Controllers\PageStoryController;
 use App\Http\Controllers\PageTopicsController;
 use App\Http\Controllers\PageVocabularyController;
 use App\Http\Controllers\PostController;
@@ -100,6 +102,18 @@ Route::get('logout',[UserController::class,'logout'])->middleware('auth')->name(
     Route::get('start-listen/{id}', [ListenController::class, 'start_listen_id'])->name('start_listen_one');
 
     Route::get('start-listen-two/{id}', [ListenController::class,'show_listen_two'])->name('start_listen_two');
+
+    Route::get('start-story', [PageStoryController::class, 'showStory'])->name('show_story');
+
+    Route::get('start-story/{id}', [PageStoryController::class , 'startStory'])->name('start_story');
+
+    Route::get('start-story-vocabulary/{id}', [PageStoryController::class, 'storyVocabulary'])->name('story_vocabulary');
+
+    Route::get('start-story-remember/{id}', [PageStoryController::class, 'startRemember'])->name('story_remmember');
+
+    Route::get('exams', [PageExamController::class, 'showExams'])->name('show_exams');
+
+    Route::get('start-exams', [PageExamController::class, 'startExams'])->name(('start_exams'));
 
 
  });

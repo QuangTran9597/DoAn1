@@ -39,7 +39,7 @@ class AdminStoryController extends Controller
      */
     public function store(Request $request)
     {
-        $stories = Story::query()->create($request->only('story_name', 'story_title', 'story_content', 'story_image'));
+        $stories = Story::query()->create($request->only('story_name', 'story_title', 'story_content', 'story_image', 'link'));
 
         if ($file = $request->file('story_image'))
         {
@@ -88,7 +88,7 @@ class AdminStoryController extends Controller
     {
         $stories = Story::findOrFail($id);
 
-        $stories->update($request->only('story_name', 'story_title', 'story_content', 'story_image'));
+        $stories->update($request->only('story_name', 'story_title', 'story_content', 'story_image', 'link'));
 
         if ($file = $request->file('story_image'))
         {

@@ -1,0 +1,141 @@
+.activity-image {
+    width: -webkit-fill-available;
+}
+
+.blue-bar {
+
+    background: rgb(14, 163, 168);
+    margin-top: 20px;
+    text-align: center;
+    border-radius: 5px;
+    height: 65px;
+    padding: 5px;
+}
+
+.images-story {
+
+    height: 150px;
+    background: rgb(240, 237, 235);
+    margin-bottom: 20px;
+    min-height: 50px;
+    overflow: hidden;
+    padding: 20px;
+
+    box-shadow: 0 6px 7px -4px #b6b6b6;
+    -moz-box-shadow: 0 6px 7px -4px #B6B6B6;
+    -webkit-box-shadow: 0 6px 7px -4px #b6b6b6;
+    border-bottom-right-radius: 20px;
+    -moz-border-radius-bottomright: 20px;
+    -webkit-border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    -moz-border-radius-bottomleft: 20px;
+    -webkit-border-bottom-left-radius: 20px;
+}
+
+.image {
+
+   float: left;
+   height: 105px;
+   cursor: move;
+   margin: 0 20px 20px 0;
+   margin-left: 8px;
+
+}
+
+.image img{
+
+    width: 150px;
+    height: 104px;
+    z-index: 2;
+    border: 1px solid transparent;
+}
+
+.activity-line {
+    margin-top: 30px;
+    border-top: 2px solid #e6e6e6;
+    text-align: center;
+}
+
+.line-text {
+    display: inline-block;
+    color: #8c8c8c;
+    text-align: center;
+    padding: 0 10px 0 5px;
+}
+
+.audio-story {
+    width: 1100px;
+    float: left;
+    line-height: 22px;
+    margin-bottom: 20px;
+    margin-top: 30px;
+    margin-left: 45px;
+
+
+}
+
+.audio {
+    width: 298px;
+    /* background: lemonchiffon; */
+    float: left;
+
+    margin-top: 30px;
+    margin-left: 30px;
+    display: flex;
+
+}
+
+.audio-name-listen {
+    float: left;
+    margin-left: 15px;
+}
+
+.audio-story .image {
+    width: 150px;
+    background: rgb(146, 209, 230);
+    float: right;
+
+    border: 1px dashed #d9d9d9;
+    opacity: 1;
+    margin-top: -15px;
+}
+
+.volume {
+    /* position:absolute; */
+  float: left;
+  margin-top: -15px;
+
+}
+
+.volume .icon-volume {
+    /* position: relative; */
+    background-color:rgb(150, 208, 228) ;
+    width: 100px;
+    height: 80px;
+    font-size: 50px;
+    border-radius: 20%;
+}
+
+.btn-check {
+    text-align: center;
+}
+
+.check-img , .doAgain, .answer, .story-list {
+    background-color: rgb(150, 208, 228) ;
+    width: 100px;
+    border-color: rgb(87, 140, 158) ;
+    margin: 10px;
+}
+
+.answer {
+    display: none;
+}
+
+.check-img:hover , .doAgain:hover, .answer:hover, .story-list:hover {
+    background-color: rgb(24, 75, 77);
+}
+
+.true-icon1, .false-icon1 {
+    display: none;
+}
+

@@ -1,0 +1,42 @@
+.icon-next {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.icon-next p {
+    font-size: 22px;
+    border: 3px solid rgb(14, 120, 124);
+    padding: 5px;
+
+}
+
+.icon-next a {
+    color:rgb(14, 120, 124) ;
+}
+
+.icon-next h5 {
+    font-size: 22px;
+    border: 3px solid rgb(14, 120, 124);
+    padding: 12px 15px;
+    height: 56px;
+    color: rgb(14, 120, 124);
+
+}
+
+.story-video {
+    background-color: rgb(230, 234, 236);
+    padding: 20px;
+}
+
+.previus, .remember, .story-list {
+    background-color: rgb(150, 208, 228) ;
+    border-color: rgb(87, 140, 158) ;
+    margin: 10px;
+}
+
+.previus:hover, .remember:hover, .story-list:hover {
+    background-color: rgb(24, 75, 77);
+}
+
+
