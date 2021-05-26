@@ -14,11 +14,12 @@ class CreateListensTable extends Migration
     public function up()
     {
         Schema::create('listens', function (Blueprint $table) {
-            $table->id();
-            $table->integer('topic_id');
+            $table->increments('id');
+            $table->integer('topic_id')->unsigned();
             $table->string('listen_name');
             $table->string('listen_audio');
             $table->timestamps();
+            $table->foreign('topic_id')->references('id')->on('topics');
         });
     }
 

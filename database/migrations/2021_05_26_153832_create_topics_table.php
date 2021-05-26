@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTopics extends Migration
+class CreateTopicsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -21,6 +21,7 @@ class CreateTopics extends Migration
             $table->string('topic_content');
             $table->string('topic_image');
             $table->timestamps();
+            $table->foreign('lesson_id')->references('id')->on('lessons');
         });
     }
 

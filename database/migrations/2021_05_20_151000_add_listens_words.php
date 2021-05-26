@@ -14,8 +14,7 @@ class AddListensWords extends Migration
     public function up()
     {
         Schema::table('listens_words', function (Blueprint $table) {
-            $table->string('word_false');
-            $table->string('status_false');
+           
         });
     }
 

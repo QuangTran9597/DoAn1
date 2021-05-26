@@ -14,12 +14,13 @@ class CreateCallsTable extends Migration
     public function up()
     {
         Schema::create('calls', function (Blueprint $table) {
-            $table->id();
-            $table->integer('listen_id');
+            $table->increments('id');
+            $table->integer('listen_id')->unsigned();
             $table->string('name');
             $table->integer('telephone');
             $table->string('message');
             $table->timestamps();
+            $table->foreign('listen_id')->references('id')->on('listens');
         });
     }
 

@@ -9,7 +9,7 @@ class Listen_word extends Model
 {
     use HasFactory;
 
-    protected $table = 'listens_words';
+    protected $table = 'listen_words';
 
     protected $fillable = [
         'listen_audio_id',

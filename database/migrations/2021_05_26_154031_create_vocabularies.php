@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateVocabularysTable extends Migration
+class CreateVocabularies extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,15 @@ class CreateVocabularysTable extends Migration
      */
     public function up()
     {
-        Schema::create('vocabularys', function (Blueprint $table) {
-            $table->id();
-            $table->integer('id_topic');
+        Schema::create('vocabularies', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('topic_id')->unsigned();
             $table->string('vocabulary_name');
             $table->string('vocabulary_image');
             $table->string('vocabulary_audio');
             $table->string('vietsub');
             $table->timestamps();
+            $table->foreign('topic_id')->references('id')->on('topics');
         });
     }
 
@@ -31,6 +32,6 @@ class CreateVocabularysTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('vocabularys');
+        Schema::dropIfExists('vocabularies');
     }
 }

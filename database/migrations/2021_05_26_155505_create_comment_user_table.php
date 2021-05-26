@@ -14,10 +14,12 @@ class CreateCommentUserTable extends Migration
     public function up()
     {
         Schema::create('comment_user', function (Blueprint $table) {
-            $table->unsignedBigInteger('comment_id');
-            $table->unsignedBigInteger('user_id');
+            $table->integer('comment_id')->unsigned();
+            $table->integer('user_id')->unsigned();
             $table->primary(['comment_id', 'user_id']);
-            
+            $table->foreign('comment_id')->references('id')->on('comments');
+            $table->foreign('user_id')->references('id')->on('users');
+
         });
     }
 

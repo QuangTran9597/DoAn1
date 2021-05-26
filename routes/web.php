@@ -156,10 +156,10 @@ Route::get('verifyEmail_noti', function()
     Notification::route('mail', 'quangtran@gmail.com')->notify(new VerifyEmail());
 });
 
-Route::get('change' , function()
+Route::get('drop' , function()
 {
-    Schema::table('courses' , function($table) {
-        $table->increments('id')->unsigned()->change();
-    });
-    return 11111;
+   Schema::drop('calls');
+
+   return " drop ok calls" ;
+
 });
