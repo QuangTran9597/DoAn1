@@ -41,7 +41,7 @@ class AdminStoryImageController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request->all());
+        
         $images = Story_Image::query()->create($request->only('story_id', 'image_name', 'vietsub', 'image', 'image_audio'));
 
         if($file = $request->file('image'))
@@ -109,6 +109,6 @@ class AdminStoryImageController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Story_Image::destroy($id);
     }
 }

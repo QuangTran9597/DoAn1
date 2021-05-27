@@ -23,6 +23,6 @@ class VerifyEmail
             return $next($request);
         }
 
-        return back();
+        return back()->with('message', 'Bạn chưa đủ điều kiện đăng nhập!');
     }
 }

@@ -117,6 +117,6 @@ class AdminlistenController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Listen::destroy($id);
     }
 }

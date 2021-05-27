@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class AdminsController extends Controller
 {
@@ -37,8 +38,14 @@ class AdminsController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request->toArray());
-        User::query()->create($request->only('name', 'email','password', 'quyen'));
+
+        User::query()->create([
+            'name' => $request->input('name'),
+            'email' => $request->input('email'),
+            'password' => Hash::make($request->input('password')),
+            'quyen' => $request->input('quyen'),
+            'email_verified_at' => now(),
+        ]);
 
         return redirect()->route('show_users.index')->with('message', 'Bạn đã thêm User thành công');
     }
@@ -87,6 +94,6 @@ class AdminsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        User::destroy($id);
     }
 }

@@ -27,7 +27,7 @@ class CourseController extends Controller
      */
     public function create()
     {
-        // sử dụng Gate
+
         Gate::authorize('create-courses');
 
         return view('admins.courses.create_course');
@@ -83,7 +83,6 @@ class CourseController extends Controller
      */
     public function update(Request $request, $id)
     {
-        // dd($request->all());
 
         $courses = Course::findOrFail($id);
 

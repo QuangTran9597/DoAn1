@@ -108,8 +108,5 @@ class VocabController extends Controller
         Vocabulary::destroy($id);
     }
 
-    public function showFamily()
-    {
-        return 11111;
-    }
+   
 }

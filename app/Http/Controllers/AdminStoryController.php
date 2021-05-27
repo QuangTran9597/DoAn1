@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Story;
+use App\Models\Story_Image;
 
 class AdminStoryController extends Controller
 {
@@ -17,7 +18,6 @@ class AdminStoryController extends Controller
         $stories = Story::orderByDesc('id')->paginate(5);
 
         return view('admins.stories.show_story', compact('stories'));
-
 
     }
 
@@ -110,6 +110,6 @@ class AdminStoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Story::destroy($id);
     }
 }

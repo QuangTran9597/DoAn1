@@ -55,6 +55,7 @@ Route::get('register', [RegisterController::class, 'register'])->name('register'
 
 Route::post('register', [RegisterController::class, 'register_user'])->name('post.register');
 
+
 Route::get('verify-email/{id}', [RegisterController::class, 'verifyEmail'])->name('verify-email');
 
 
@@ -70,15 +71,10 @@ Route::post('newPassword/{id}', [RegisterController::class,'ResetPassword'])->na
 
 
 
-
 // Logout
 Route::get('logout',[UserController::class,'logout'])->middleware('auth')->name('get.logout');
 
 
-
-
-
-// quyền user được học các bài học trên pages
  Route::middleware(['checklogin','auth'])->group(function () {
 
     Route::get('user', [UserController::class, 'index'])->name('user.index');
@@ -120,7 +116,7 @@ Route::get('logout',[UserController::class,'logout'])->middleware('auth')->name(
 
  });
 
- // quyền admin thêm sửa xóa các bài viết
+
  Route::middleware('checkadmin', 'auth')->group(function(){
 
     Route::get('admin.welcome', [AdminController::class, 'welcome'])->name('admin.welcome');
@@ -146,22 +142,3 @@ Route::get('logout',[UserController::class,'logout'])->middleware('auth')->name(
     Route::resource('story_image', AdminStoryImageController::class);
 
  });
-
-//  Route::get('doiten', function() {
-//      Schema::rename('listens_words', 'true');
-//  });
-
-
-
-Route::get('verifyEmail_noti', function()
-{
-    Notification::route('mail', 'quangtran@gmail.com')->notify(new VerifyEmail());
-});
-
-Route::get('drop' , function()
-{
-   Schema::drop('calls');
-
-   return " drop ok calls" ;
-
-});
