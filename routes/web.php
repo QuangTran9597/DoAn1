@@ -83,6 +83,8 @@ Route::get('logout',[UserController::class,'logout'])->middleware('auth')->name(
 
     Route::get('user', [UserController::class, 'index'])->name('user.index');
 
+    Route::get('show-course', [PageTopicsController::class, 'showCourse'])->name('show_courses');
+
     Route::get('page', [PageTopicsController::class, 'show_topics'])->name('page.showtopics');
 
     Route::get('start-topics/{id}', [PageTopicsController::class, 'start_topics'])->name('start_topics');

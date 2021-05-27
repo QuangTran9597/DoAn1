@@ -21,7 +21,7 @@ class CreateLessonsTable extends Migration
             $table->string('lesson_title');
             $table->string('lesson_content');
             $table->timestamps();
-            $table->foreign('course_id')->references('id')->on('courses');
+            $table->foreign('course_id')->references('id')->on('courses')->onDelete('cascade');
         });
     }
 

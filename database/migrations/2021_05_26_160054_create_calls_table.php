@@ -20,7 +20,7 @@ class CreateCallsTable extends Migration
             $table->integer('telephone');
             $table->string('message');
             $table->timestamps();
-            $table->foreign('listen_id')->references('id')->on('listens');
+            $table->foreign('listen_id')->references('id')->on('listens')->onDelete('cascade');
         });
     }
 

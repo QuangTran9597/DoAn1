@@ -21,7 +21,7 @@ class CreateListenWords extends Migration
             $table->timestamps();
             $table->string('word_false');
             $table->string('status_false');
-            $table->foreign('listen_audio_id')->references('id')->on('listens');
+            $table->foreign('listen_audio_id')->references('id')->on('listens')->onDelete('cascade');
         });
     }
 

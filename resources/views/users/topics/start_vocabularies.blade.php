@@ -33,7 +33,8 @@
                     @foreach ($topics->vocabularies as $key => $vocabulary )
 
                     <div class="image-audio">
-                        <img class="selected " id="ImgMain" img_key="{{ $key }}" title="{{ $vocabulary->vocabulary_name }} = {{ $vocabulary->vietsub }}" src="/upload/images/vocabulary/{{ $vocabulary->vocabulary_image}}" alt="">
+                        <img class="selected " id="ImgMain" img_key="{{ $key }}" title="{{ $vocabulary->vocabulary_name }} = {{ $vocabulary->vietsub }}"
+                        src="/upload/images/vocabulary/{{ $vocabulary->vocabulary_image}}" alt="">
 
 
                         <audio class="audio-img" audio_key="{{ $key }}" src="/upload/audio/{{ $vocabulary->vocabulary_audio}}" controls hidden type="audi/mpeg">

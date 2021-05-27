@@ -17,8 +17,8 @@ class CreateCommentTopicTable extends Migration
             $table->integer('comment_id')->unsigned();
             $table->integer('topic_id')->unsigned();
             $table->primary(['comment_id', 'topic_id']);
-            $table->foreign('comment_id')->references('id')->on('comments');
-            $table->foreign('topic_id')->references('id')->on('topics');
+            $table->foreign('comment_id')->references('id')->on('comments')->onDelete('cascade');
+            $table->foreign('topic_id')->references('id')->on('topics')->onDelete('cascade');
         });
     }
 

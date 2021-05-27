@@ -21,7 +21,7 @@ class CreateVocabularies extends Migration
             $table->string('vocabulary_audio');
             $table->string('vietsub');
             $table->timestamps();
-            $table->foreign('topic_id')->references('id')->on('topics');
+            $table->foreign('topic_id')->references('id')->on('topics')->onDelete('cascade');
         });
     }
 

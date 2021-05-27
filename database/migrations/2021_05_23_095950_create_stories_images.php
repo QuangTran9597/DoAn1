@@ -22,7 +22,7 @@ class CreateStoriesImages extends Migration
             $table->string('vietsub');
             $table->timestamps();
 
-            $table->foreign('story_id')->references('id')->on('stories');
+            $table->foreign('story_id')->references('id')->on('stories')->onDelete('cascade');
         });
 
     }

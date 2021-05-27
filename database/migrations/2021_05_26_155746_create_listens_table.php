@@ -19,7 +19,7 @@ class CreateListensTable extends Migration
             $table->string('listen_name');
             $table->string('listen_audio');
             $table->timestamps();
-            $table->foreign('topic_id')->references('id')->on('topics');
+            $table->foreign('topic_id')->references('id')->on('topics')->onDelete('cascade');
         });
     }
 

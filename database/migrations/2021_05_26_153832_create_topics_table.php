@@ -21,7 +21,7 @@ class CreateTopicsTable extends Migration
             $table->string('topic_content');
             $table->string('topic_image');
             $table->timestamps();
-            $table->foreign('lesson_id')->references('id')->on('lessons');
+            $table->foreign('lesson_id')->references('id')->on('lessons')->onDelete('cascade');
         });
     }
 
