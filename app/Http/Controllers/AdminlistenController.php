@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ListenRequest;
 use App\Models\Listen;
 use App\Models\Topic;
 use Illuminate\Http\Request;
@@ -37,10 +38,9 @@ class AdminlistenController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ListenRequest $request)
     {
-        // dd($request->toArray());
-
+       
         $listen = Listen::query()->create($request->only('topic_id', 'listen_name', 'listen_audio'));
 
         if($fileAudio = $request->file('listen_audio'))

@@ -16,10 +16,10 @@
                 </div>
                 <div class="mb-3">
                     <label for="vocabulary">Vocabulary-Name</label>
-                    <input type="" name="vocabulary_name" class="form-control" value="{{ old('vocabulary') }}">
+                    <input type="" name="vocabulary_name" class="form-control" value="{{ old('vocabulary_name') }}">
                     <span class="custom-file-control"></span>
 
-                    @error('vocabulary')
+                    @error('vocabulary_name')
                     <div class="arlet alert-danger">{{$message}}</div>
                     @enderror
                 </div>
@@ -29,7 +29,7 @@
                     <input type="text" id="vietsub" name="vietsub" class="form-control" value="{{ old('vietsub') }}">
                     <span class="custom-file-control"></span>
 
-                    @error('vocabulary')
+                    @error('vietsub')
                     <div class="arlet alert-danger">{{$message}}</div>
                     @enderror
                 </div>
@@ -38,6 +38,10 @@
                     <label for="">Vocabulary-Image</label>
                     <input type="file" id="vocabulary_image" name="vocabulary_image" class="form-control" onchange="ImagesFileAsURL()">
                 </div>
+
+                @error('vocabulary_image')
+                    <div class="arlet alert-danger">{{$message}}</div>
+                    @enderror
                 <div id="displayImg">
 
                 </div>
@@ -45,6 +49,11 @@
                 <div class="mb-3">
                     <label for="audio">Vocabulary-Audio</label>
                     <input type="file" id="vocabulary_audio" name="vocabulary_audio" class="form-control">
+
+                    @error('vocabulary_audio')
+                    <div class="arlet alert-danger">{{$message}}</div>
+                    @enderror
+
                     <audio id="audio" controls>
                         <source src="" id="src">
                     </audio>

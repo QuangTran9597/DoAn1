@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\TopicRequest;
 use App\Models\Lesson;
 use App\Models\Topic;
 use Illuminate\Auth\Access\Gate;
@@ -39,7 +40,7 @@ class TopicsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(TopicRequest $request)
     {
 
         $post  = Topic::query()->create($request->only('lesson_id', 'topic_name','topic_title', 'topic_content', 'topic_image'));

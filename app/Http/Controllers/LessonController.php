@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\EditCourseRequest;
+use App\Http\Requests\EditLessonRequest;
+use App\Http\Requests\LessonRequest;
 use App\Models\Course;
 use App\Models\Lesson;
 use Illuminate\Http\Request;
@@ -36,7 +39,7 @@ class LessonController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(LessonRequest $request)
     {
 
         $lesson = Lesson::query()->create($request->only('course_id','lesson_name', 'lesson_title', 'lesson_content','lesson_image'));
@@ -88,7 +91,7 @@ class LessonController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(EditLessonRequest $request, $id)
     {
 
         $lesson = Lesson::with('course')->findOrFail($id);

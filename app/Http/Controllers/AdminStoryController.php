@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoryRequest;
 use Illuminate\Http\Request;
 use App\Models\Story;
 use App\Models\Story_Image;
@@ -37,7 +38,7 @@ class AdminStoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoryRequest $request)
     {
         $stories = Story::query()->create($request->only('story_name', 'story_title', 'story_content', 'story_image', 'link'));
 

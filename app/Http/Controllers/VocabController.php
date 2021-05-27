@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\VocabularyRequest;
 use App\Models\Topic;
 use App\Models\Vocabulary;
 use Illuminate\Http\Request;
@@ -37,7 +38,7 @@ class VocabController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(VocabularyRequest $request)
     {
         $vocabularies = Vocabulary::query()->create($request->only('topic_id','vocabulary_name', 'vietsub', 'vocabulary_image', 'vocabulary_audio'));
 
@@ -108,5 +109,5 @@ class VocabController extends Controller
         Vocabulary::destroy($id);
     }
 
-   
+
 }

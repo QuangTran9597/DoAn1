@@ -57,6 +57,10 @@
                     <input type="file" id="story_image" name="story_image" class="form-control" onchange="ImagesFileAsURL()">
 
                     <br>
+                    @error('story_image')
+                    <div class="arlet alert-danger">{{$message}}</div>
+                    @enderror
+
                     <div id="displayImg">
 
                     </div>

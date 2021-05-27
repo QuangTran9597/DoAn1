@@ -56,6 +56,9 @@
                     <div id="displayImg">
 
                     </div>
+                    @error('lesson_image')
+                    <div class="arlet alert-danger">{{$message}}</div>
+                    @enderror
                 </div>
 
                 <br>

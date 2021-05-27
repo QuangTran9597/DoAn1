@@ -60,6 +60,9 @@
                     <div id="displayImg">
                         <!-- <img src="/upload/images/{{$lessons->lesson_image}}" alt=""> -->
                     </div>
+                    @error('lesson_image')
+                    <div class="arlet alert-danger">{{$message}}</div>
+                    @enderror
                 </div>
 
                 <br>

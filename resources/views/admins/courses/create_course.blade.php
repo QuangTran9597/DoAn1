@@ -8,7 +8,7 @@
                 @csrf
                 <div class="mb-3">
                     <label for="" class="form-label">Course_Name</label>
-                    <input type="text" class="form-control" id="course_name" aria-describedby="" name="course_name" require="" value="{{ old('course_name')}}">
+                    <input type="text" class="form-control" id="course_name" aria-describedby="" name="course_name"  value="{{ old('course_name')}}">
                     <div id="" class="form-text"></div>
 
                     @error('course_name')
@@ -17,7 +17,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="course_title">Course_Title</label>
-                    <textarea class="form-control" name="course_title" placeholder="" id="floatingTextarea" rows="3" value="{{old('cours_title')}}"></textarea>
+                    <textarea class="form-control" name="course_title" placeholder="" id="floatingTextarea" rows="3" value="{{old('course_title')}}"></textarea>
                     <span class="custom-file-control"></span>
 
                     @error('course_title')
@@ -27,7 +27,7 @@
 
                 <div class="mb-3">
                     <label for="course_content">Course_Content</label>
-                    <textarea class="form-control" name="course_content" placeholder="" id="floatingTextarea" value="{{old('cours_title')}}" rows="4"></textarea>
+                    <textarea class="form-control" name="course_content" placeholder="" id="floatingTextarea" value="{{old('course_content')}}" rows="4"></textarea>
 
                     <span class="custom-file-control"></span>
 

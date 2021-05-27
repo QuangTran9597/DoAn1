@@ -30,11 +30,15 @@
                 <div class="mb-3">
                     <label for="audio">Listen_Audio</label>
                     <input type="file" id="listen_audio" name="listen_audio" class="form-control">
-
+                    
+                    @error('listen_audio')
+                    <div class="arlet alert-danger">{{$message}}</div>
+                    @enderror
                     <br>
                     <audio id="audio" controls>
                         <source src="" id="src">
                     </audio>
+
                 </div>
                 <br>
 
