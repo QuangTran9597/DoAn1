@@ -1,0 +1,26 @@
+.portfolio-item {
+    max-width: 17rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.portfolio-item img {
+    border: 1px solid ;
+    padding: 5px;
+}
+
+.portfolio-caption {
+    text-align: center;
+    margin: 5px;
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.portfolio-caption-heading {
+    width: 250px;
+}
+
+.lessons, .topics, .stories {
+    margin: 20px;
+}

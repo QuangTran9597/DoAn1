@@ -4,12 +4,12 @@
 
 @section('content')
 <link rel="stylesheet" href="{{asset('css/pages/story_remember.css')}}">
-<!-- <link rel="stylesheet" href="{{asset('css/pages/listen1.css')}}"> -->
+
 <section class="page-section bg-light" id="portfolio">
     <div class="container">
         <div class="text-center" style="text-align: center;">
             <h2 class="section-heading text-uppercase">Story: {{ $stories->story_name }}</h2>
-            <!-- <h3 class="section-subheading text-muted">{{ $stories->story_content }}</h3> -->
+           
         </div>
         <div class="row">
             <div class="activity-image">

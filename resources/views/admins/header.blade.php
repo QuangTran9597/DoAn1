@@ -1,7 +1,7 @@
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
         <!-- Sidebar - Brand -->
-        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ route('admin.welcome')}}">
             <div class="sidebar-brand-icon rotate-n-15">
                 <i class="fas fa-laugh-wink"></i>
             </div>
@@ -84,7 +84,7 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header"></h6>
                         <a class="collapse-item" href="{{ route('vocabulary.index')}}">Danh sách từ vựng</a>
-                        <a class="collapse-item" href="">Từ vựng theo chủ đề </a>
+                       
                         <a class="collapse-item" href="{{route('vocabulary.create')}}">Thêm từ vựng</a>
                         <a class="collapse-item" href="">Family</a>
                         <a class="collapse-item" href="register.html">House</a>

@@ -38,7 +38,7 @@
                                 <a class="btn btn-dark btn-social mx-2 icon-play" href="#!"><i class="fas fa-play"></i></a>
                                 <a class="btn btn-dark btn-social mx-2 icon-volume" href="#!"><i class="fas fa-volume-up"></i></a>
                                 <a class="btn btn-dark btn-social mx-2 icon-pause" href="#!"><i class="fas fa-pause"></i></a>
-                                <!-- <div id="status" style="color:red;">Status: Loading</div> -->
+
                             </div>
 
                             <img src="{{ asset('img/image.jpg')}}" class="listen-img">
@@ -93,152 +93,11 @@
                 </div>
             </div>
         </div>
-        <a href="" class="next-listen">Bài tiếp</a>
+        <a href="" class="btn btn-primary next-listen">Bài tiếp</a>
     </div>
 </section>
 
 
-<script>
-    $(document).ready(function() {
-
-        var audioListen = document.createElement('audio');
-
-        audioListen.setAttribute('src', $('.audio-name-listen source').attr('src'));
-
-        audioListen.addEventListener('ended', function() {
-            this.play();
-        }, false);
-
-        audioListen.addEventListener("canplay", function() {
-
-        });
-
-        $('.icon-play').click(function()
-        {
-            audioListen.play();
-        });
-
-        $('.icon-pause').click(function()
-        {
-            audioListen.pause();
-        });
-
-        $('.icon-volume').click(function()
-        {
-            audioListen.currentTime = 0;
-        });
-
-        $('.check-word').click(function() {
-
-            var audioCheck = document.createElement('audio');
-            audioCheck.setAttribute('src', 'http://localhost:8000/upload/show-result.mp3');
-            audioCheck.play();
-
-            var diem = null;
-            var total = null;
-
-            $('.listen-check').each(function() {
-                var inputName = String($(this).find('.name-check').val());
-                var name = String($(this).find('.name-check').attr('data'));
-
-                var inputTelephone = parseInt($(this).find('.phone-check').val());
-                var phone = parseInt($(this).find('.phone-check').attr('data'));
-
-                var inputMessage = String($(this).find('.message-check').val());
-                var message = String($(this).find('.message-check').attr('data'));
-
-                if (inputName === name) {
-                    $('.true-icon1').show();
-                    $('.false-icon1').hide();
-                    $(this).find('.name-check').css({
-                        background: "limegreen"
-                    });
-
-                    diem = 1;
-                    total += diem;
-                } else {
-
-                    $(this).find('.name-check').css({
-                        background: "tomato"
-                    });
-
-                    $('.true-icon1').hide();
-                    $('.false-icon1').show();
-
-                    diem = 0;
-                    total += diem;
-                };
-
-                if (inputTelephone === phone) {
-                    // $('.phone-check').find('.true-icon1').show();
-                    // $('.phone-check').find('.false-icon1').hide();
-                    $(this).find('.phone-check').css({
-                        background: "limegreen"
-                    });
-
-
-                    diem = 1;
-                    total += diem;
-
-                } else {
-                    // $('.phone-check').find('.true-icon1').hide();
-                    // $('.phone-check').find('.false-icon1').show();
-                    $(this).find('.phone-check').css({
-                        background: "tomato"
-                    });
-
-                    diem = 0;
-                    total += diem;
-
-                };
-
-                if (inputMessage === message) {
-                    // $('.message-check').find('.true-icon1').show();
-                    // $('.message-check').find('.false-icon1').hide();
-
-                    $(this).find('.message-check').css({
-                        background: "limegreen"
-                    });
-
-                    diem = 1;
-                    total += diem;
-
-                } else {
-                    // $('.message-check').find('.true-icon1').hide();
-                    // $('.message-check').find('.false-icon1').show();
-                    $(this).find('.message-check').css({
-                        background: "tomato"
-                    });
-
-                    diem = 0;
-                    total += diem;
-
-                };
-
-            });
-            $('.answer').show();
-
-            console.log(total);
-
-        });
-
-
-        $('.doAgain').click(function() {
-            parent.window.location.reload();
-        });
-
-        $('.answer').click(function() {
-
-            $('.choices-container').each(function() {
-                $(this).find('.word-true').css({
-                    color: "rgb(14, 163, 168)"
-                });
-
-            })
-        });
-
-    });
-
-</script>
+<script src="{{ asset('js/listen_two.js')}}"></script>
 
 @endsection

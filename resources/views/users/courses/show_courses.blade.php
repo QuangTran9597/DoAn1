@@ -14,7 +14,7 @@
         </div>
         <div class="course-in-category">
             @foreach ($courses as $key => $course )
-            <a href="" class="course-item-detail">
+            <a href="{{route('page.showtopics')}}" class="course-item-detail">
                 <div class="course-item-detail-img-box">
                     <img alt="course item image" class="course-item-detail-img" src="https://media.ucan.vn/upload/userfiles/organizations/1/1/thumbnails/tu-vung-co-ban1/180x90_cover.jpg">
                 </div>

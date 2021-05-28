@@ -22,6 +22,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 
     <!-- Custom styles for this template-->
+    <!-- <link href="{{asset('css/styles.css') }}" rel="stylesheet" /> -->
     <link href="{{asset('css/sb-admin-2.min.css')}}" rel="stylesheet">
 
 </head>
@@ -64,7 +65,7 @@
     </a>
 
     <!-- Logout Modal-->
-    
+
     </div>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>

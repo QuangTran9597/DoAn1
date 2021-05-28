@@ -15,8 +15,8 @@
                 <input type="hidden" name="total" value="{{ count($arrVocabulary ) }}">
                 @foreach ($arrVocabulary as $key => $vocabulary )
                 <h3 class="ind">
-                    <img src="{{ asset('img/true-icon.png')}}" class="true-icon">
-                    <img src="{{ asset('img/false-icon.png')}}" class="false-icon">
+                    <!-- <img src="{{ asset('img/true-icon.png')}}" class="true-icon">
+                    <img src="{{ asset('img/false-icon.png')}}" class="false-icon"> -->
                     Question: {{$key + 1}}
                 </h3>
 

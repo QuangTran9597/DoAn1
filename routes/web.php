@@ -97,9 +97,9 @@ Route::get('logout',[UserController::class,'logout'])->middleware('auth')->name(
 
     Route::get('start-listen', [ListenController::class, 'start_listen'])->name('get.start_listen');
 
-    Route::get('start-listen/{id}', [ListenController::class, 'start_listen_id'])->name('start_listen_one');
+    Route::get('start-listen/{id}', [ListenController::class, 'startListen'])->name('start_listen_one');
 
-    Route::get('start-listen-two/{id}', [ListenController::class,'show_listen_two'])->name('start_listen_two');
+    Route::get('start-listen-two/{id}', [ListenController::class,'showListenTwo'])->name('start_listen_two');
 
     Route::get('start-story', [PageStoryController::class, 'showStory'])->name('show_story');
 
@@ -120,6 +120,8 @@ Route::get('logout',[UserController::class,'logout'])->middleware('auth')->name(
  Route::middleware('checkadmin', 'auth')->group(function(){
 
     Route::get('admin.welcome', [AdminController::class, 'welcome'])->name('admin.welcome');
+
+    Route::get('search', [AdminController::class, 'search'])->name('search');
 
     Route::resource('topics', TopicsController::class);
 

@@ -116,10 +116,13 @@
     </div>
 
 </section>
-<script src="{{ asset('js/remember_vocab.js')}}"></script>
+
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="{{ asset('js/remember_vocabu.js')}}"></script>
+<script src="{{ asset('js/remember_vocab.js')}}"></script>
 <script>
-    // đảo từ và hình ảnh
+
     var words = $(".vocabulary");
     for (var i = 0; i < words.length; i++) {
         var tager = Math.floor(Math.random() * words.length - 2) + 2;
@@ -128,64 +131,6 @@
         words.eq(tager).before(words.eq(targer2));
     }
 
-    $(document).ready(function() {
-        var total = $('[name="total"]').val();
-        var img = $('.vocabularyImg');
-        var caption = $('.caption-text');
-        var checkImg = null;
-        var checkCaption = null;
-        var scores = null;
-        var count = null;
-        $('.btn-check').click(function() {
-            var audioCheck = document.createElement('audio');
-            audioCheck.setAttribute('src', 'http://localhost:8000/upload/check.mp3');
-            audioCheck.play();
-
-            $('.vocabularyImg').each(function() {
-
-                checkImg = parseInt($(this).attr('data-id'));
-                checkCaption = parseInt($(this).parent().find('.list-word').attr('data-id'));
-
-                if (parseInt(checkImg) === parseInt(checkCaption)) {
-
-                     $(this).parent().find('.icon-true').show();
-                     $(this).parent().find('.icon-false').hide();
-
-                    scores = 1;
-                    count += scores;
-                    console.log('true');
-                } else {
-
-                    $(this).parent().find('.icon-true').hide();
-                     $(this).parent().find('.icon-false').show();
-
-                    scores = 0;
-                    count += scores;
-                    console.log('false');
-                }
-
-            });
-            swal({
-                title: "Điểm số của bạn là: " + count + '/' + total,
-                text: "Bạn có muốn làm lại bài tập không? Click Do Again!",
-                icon: "success",
-                buttons: true,
-                // dangerMode: true,
-            });
-        });
-
-        $('.btn-doAgain').click(function() {
-            location.reload();
-        });
-
-        $('.review-button').click(function() {
-            $('#add-review-form-placeholder').show()
-        })
-        $('.btn-next-topics').click(function(){
-            localStorage.removeItem("clickcount");
-
-        })
-    })
 </script>
 
 @endsection

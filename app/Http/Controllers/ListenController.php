@@ -20,7 +20,7 @@ class ListenController extends Controller
         return view('users.listen.start_listen', compact('topics', 'lessons'));
     }
 
-    public function start_listen_id($id)
+    public function startListen($id)
     {
         $topics = Topic::with('listens')->findOrFail($id);
 
@@ -33,7 +33,7 @@ class ListenController extends Controller
         return view('users.listen.start_listen_one', compact('topics', 'listens_topics' ,'listens_word'));
     }
 
-    public function show_listen_two($id)
+    public function showListenTwo($id)
     {
         $topics = Topic::with('listens')->findOrFail($id);
 

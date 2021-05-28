@@ -81,15 +81,15 @@
             </div>
         </div>
     </div>
+
     @if(session('message'))
     <span align="center" style="color:darkcyan; " class="notification alert-danger">
         <h5>{{ session('message')}} </h5>
         <a href="{{ route('review-comments') }}" class="btn btn-primary">Xem đánh giá</a>
 
     </span>
-
-
     @endif
+    
     <div class="review-box">
 
         <img class="review-star" src="{{ asset('img/star-vector.png')}}">
@@ -150,7 +150,6 @@
             </form>
         </div>
     </div>
-
 
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

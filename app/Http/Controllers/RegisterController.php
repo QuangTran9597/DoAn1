@@ -47,7 +47,7 @@ class RegisterController extends Controller
         return redirect()->route('login');
     }
 
-    // Forgot Password
+  
     public function forgot_password(){
         return view('layout.forgot_password');
     }
@@ -63,7 +63,7 @@ class RegisterController extends Controller
                 'email.email' => 'Bạn chưa nhập đúng định dạng Email',
             ]
         );
-           
+
             $user = User::query()->where('email', $request->input('email'))->first();
 
             if($user && $user->email !== null) {
