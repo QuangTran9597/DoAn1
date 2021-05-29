@@ -30,6 +30,9 @@
                 </div>
             </div>
 
+            @foreach ($reading as $read )
+
+
             <div class="col-lg-4 col-sm-6 mb-4">
 
                <div class="portfolio-item">
@@ -37,16 +40,22 @@
                        <div class="portfolio-hover">
                            <div class="portfolio-hover-content" ><i  class="fas fa-plus fa-3x"></i></div>
                        </div>
-                       <img class="img-fluid" src="/upload/images/{{ $lessons->lesson_image}}" alt="" />
+                       <img class="img-fluid" src="/upload/images/{{ $read->lesson_image}}" alt="" />
                    </a>
+
                    <div class="portfolio-caption">
-                       <div class="portfolio-caption-heading"> {{ $lessons->lesson_name }} </div>
-                       <div class="portfolio-caption-heading"> Random Vocabulary </div>
+                       <div class="portfolio-caption-heading"> {{ $read->lesson_name }} </div>
+                       <div class="portfolio-caption-heading">Reading Test </div>
 
                        <a class="btn btn-primary" href="" role="button">Bắt đầu học ngay</a>
                    </div>
                </div>
            </div>
+
+           @endforeach
+
+
+           @foreach ($grammar as $gram )
 
            <div class="col-lg-4 col-sm-6 mb-4">
 
@@ -55,16 +64,18 @@
                        <div class="portfolio-hover">
                            <div class="portfolio-hover-content" ><i  class="fas fa-plus fa-3x"></i></div>
                        </div>
-                       <img class="img-fluid" src="/upload/images/{{ $lessons->lesson_image}}" alt="" />
+                       <img class="img-fluid" src="/upload/images/{{ $gram->lesson_image}}" alt="" />
                    </a>
                    <div class="portfolio-caption">
-                       <div class="portfolio-caption-heading"> {{ $lessons->lesson_name }} </div>
-                       <div class="portfolio-caption-heading"> Random Game </div>
+                       <div class="portfolio-caption-heading"> {{ $gram->lesson_name }} </div>
+                       <div class="portfolio-caption-heading"> Grammar Test </div>
 
                        <a class="btn btn-primary" href="" role="button">Bắt đầu học ngay</a>
                    </div>
                </div>
            </div>
+
+           @endforeach
 
 
 

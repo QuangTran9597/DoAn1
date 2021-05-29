@@ -14,7 +14,11 @@ class PageExamController extends Controller
 
         $lessons = Lesson::first();
 
-        return view('users.exams.show_exam' ,compact('lessons'));
+        $reading = Lesson::where('id', 2)->get();
+
+        $grammar = Lesson::where('id', 3)->get();
+
+        return view('users.exams.show_exam' ,compact('lessons', 'reading', 'grammar'));
     }
 
     public function startExams()

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Comment;
 use App\Models\Lesson;
 use App\Models\Listen;
 use App\Models\Story;
@@ -53,5 +54,12 @@ class AdminController extends Controller
 
 
 
+    }
+
+    public function comments()
+    {
+        $comments = Comment::with('users')->get();
+
+        return view('admins.comments.show_comment', compact('comments'));
     }
 }

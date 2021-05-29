@@ -84,7 +84,7 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header"></h6>
                         <a class="collapse-item" href="{{ route('vocabulary.index')}}">Danh sách từ vựng</a>
-                       
+
                         <a class="collapse-item" href="{{route('vocabulary.create')}}">Thêm từ vựng</a>
                         <a class="collapse-item" href="">Family</a>
                         <a class="collapse-item" href="register.html">House</a>
@@ -141,7 +141,7 @@
                 <div id="collapsePagesfive" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header"></h6>
-                        <a class="collapse-item" href="">Danh sách comments</a>
+                        <a class="collapse-item" href="{{ route('comments') }}">Danh sách comments</a>
 
                     </div>
                 </div>

@@ -123,6 +123,8 @@ Route::get('logout',[UserController::class,'logout'])->middleware('auth')->name(
 
     Route::get('search', [AdminController::class, 'search'])->name('search');
 
+    Route::get('comments', [AdminController::class, 'comments'])->name('comments');
+
     Route::resource('topics', TopicsController::class);
 
     Route::resource('vocabulary', VocabController::class);
