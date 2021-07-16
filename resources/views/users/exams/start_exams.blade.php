@@ -30,7 +30,7 @@
                             <div class="form-check">
                                 <input class="form-check-input " type="checkbox" data-id="{{ $voca['id']}}" id="flexCheckDefault">
                                 <label class="form-check-label" for="flexCheckDefault"> </label>
-                                <p class="change">Đổi đáp án</p>
+                                <!-- <p class="change">Đổi đáp án</p> -->
                             </div>
                         </div>
                         @endforeach

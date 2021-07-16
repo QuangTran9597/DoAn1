@@ -36,7 +36,6 @@
                         <img class="selected " id="ImgMain" img_key="{{ $key }}" title="{{ $vocabulary->vocabulary_name }} = {{ $vocabulary->vietsub }}"
                         src="/upload/images/vocabulary/{{ $vocabulary->vocabulary_image}}" alt="">
 
-
                         <audio class="audio-img" audio_key="{{ $key }}" src="/upload/audio/{{ $vocabulary->vocabulary_audio}}" controls hidden type="audi/mpeg">
                         </audio>
                     </div>
@@ -86,7 +85,6 @@
 
     </span>
 
-
     @endif
     <div class="review-box">
 
@@ -111,7 +109,7 @@
 
                 <div class="review-form-element" name="rating"><span id="rating-label">
 
-                        <label class="review-form-element-label required">Đánh giá</label></span>
+                    <label class="review-form-element-label required">Đánh giá</label></span>
                     <label for="rating-1"><input type="radio" name="rating" id="rating-1" value="1">1 sao (tệ)</label>
                     <label for="rating-2"><input type="radio" name="rating" id="rating-2" value="2">2 sao (bình thường)</label>
                     <label for="rating-3"><input type="radio" name="rating" id="rating-3" value="3">3 sao (tạm được)</label>

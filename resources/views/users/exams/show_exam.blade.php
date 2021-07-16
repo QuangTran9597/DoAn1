@@ -77,8 +77,6 @@
 
            @endforeach
 
-
-
         </div>
     </div>
 </section>
