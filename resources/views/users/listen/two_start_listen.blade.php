@@ -1,8 +1,7 @@
 @extends('users.index')
-
 @section('title', 'English-Listen')
-
 @section('content')
+
 <link rel="stylesheet" href="{{asset('css/pages/listen1.css')}}">
 <link rel="stylesheet" href="{{asset('css/pages/listen2.css')}}">
 <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
@@ -36,7 +35,7 @@
                             <img src="{{ asset('img/image.jpg')}}" class="listen-img">
                         </div>
                     </div>
-                    
+
                     <div class="col-sm-10 paragraph-container">
                         <div class="listen-word2" id="listen-word">
                             <table class="table table-check">
@@ -75,7 +74,6 @@
                                 <button class="btn btn-primary doAgain">Do Again</button>
                                 <button class="btn btn-primary answer">Answer</button>
                             </span>
-
                         </div>
                     </div>
                 </div>
@@ -84,7 +82,6 @@
         <a href="" class="btn btn-primary next-listen">Bài tiếp</a>
     </div>
 </section>
-
 
 <script src="{{ asset('js/listen_two.js')}}"></script>
 

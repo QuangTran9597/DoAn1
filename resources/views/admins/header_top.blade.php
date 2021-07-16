@@ -94,11 +94,8 @@
             <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
         </div>
     </li>
-
     <div class="topbar-divider d-none d-sm-block"></div>
     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ route('get.logout')}}">{{ Auth::user()->name }}<i class="fas fa-sign-out-alt "></i>LogOut</a></li>
-
-
     </li>
 
 </ul>

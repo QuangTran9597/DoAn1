@@ -8,9 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
 
     <title>EngLish - Admin </title>
 
@@ -45,7 +43,6 @@
                 <!-- Begin Page Content -->
                @yield('content')
                 <!-- /.container-fluid -->
-
             </div>
             <!-- End of Main Content -->
 

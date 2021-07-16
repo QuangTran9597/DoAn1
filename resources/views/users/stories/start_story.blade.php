@@ -1,8 +1,7 @@
 @extends('users.index')
-
 @section('title', 'English-Stories')
-
 @section('content')
+
 <link rel="stylesheet" href="{{asset('css/pages/story.css')}}">
 <link rel="stylesheet" href="{{asset('css/pages/comment.css')}}">
 <section class="page-section bg-light" id="portfolio">
@@ -16,9 +15,7 @@
                 <div class="video">
                     <iframe width="680" height="383" src="{{ $stories->link }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
-
             </div>
-
             <div class="icon-next">
                 <h5>Bạn hãy chọn phần tiếp theo</h5>
                 <p><a href="{{ route('story_vocabulary', $stories->id) }}">Vocabulary Story</a></p>
@@ -28,18 +25,14 @@
         </div>
 
         <div class="review-box">
-
             <img class="review-star" src="{{ asset('img/star-vector.png')}}">
-
             <div class="review-message"><span>Hãy viết đánh giá của bạn về bài học này.</span>
                 Các bạn sẽ đem đến những lời khuyên vô cùng bổ ích và là nguồn động lực lớn lao cho chúng tôi!
                 Rất mong nhận được hồi âm từ các bạn. Xin cảm ơn và chúc các bạn học tốt!</div>
-
             <div class="review-button">
                 <button class="btn btn-primary review-button">Viết đánh giá </button>
             </div>
         </div>
-
         <div id="add-review-form-placeholder" class="review-from" style="display: none;">
             <img id="add-review-form-placeholder-close" class="review-close" src="{{ asset('img/delete.png')}}">
             <h3 id="add-review-form-placeholder-title">Viết nhận xét của bạn về bài học: <span>{{ $stories->story_name }}</span></h3>

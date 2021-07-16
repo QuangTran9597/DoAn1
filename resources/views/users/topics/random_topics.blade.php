@@ -1,8 +1,7 @@
 @extends('users.index')
-
 @section('title', 'English-Topics')
-
 @section('content')
+
 <link rel="stylesheet" href="{{asset('css/pages/random_topics.css')}}">
 <link rel="stylesheet" href="{{asset('css/pages/comment.css')}}">
 <section class="page-section bg-light" id="portfolio">
@@ -13,24 +12,19 @@
         </div>
         <div class="row">
             <div class="random-vocabulary">
-
                 @php
-                $vocabulary = $topics->vocabularies;
-                $tukhac = $vocabulary->shuffle()->take(4);
-
+                    $vocabulary = $topics->vocabularies;
+                    $tukhac = $vocabulary->shuffle()->take(4);
                 @endphp
                 @foreach ($tukhac as $vocab )
                 <div class="random-img">
                     <img class="random-images" data-id="{{ $vocab->id}}" src="/upload/images/vocabulary/{{ $vocab->vocabulary_image}}" />
 
                 </div>
-
                 @endforeach
-
                 <div class=" audio-word">
-
                     @php
-                    $wordTrue = $tukhac->shuffle()->take(1);
+                        $wordTrue = $tukhac->shuffle()->take(1);
                     @endphp
 
                     @foreach ($wordTrue as $true )
@@ -54,11 +48,8 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
-
             </div>
-
         </div>
 
         <div class="row">
@@ -84,12 +75,8 @@
             </div>
         </div>
 
-        
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="{{ asset('js/random_vocabulary.js') }}" ></script>
-        <script>
-
-        </script>
 
 </section>
 

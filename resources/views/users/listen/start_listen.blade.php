@@ -1,7 +1,5 @@
 @extends('users.index')
-
 @section('title', 'English-Listen')
-
 @section('content')
 
 <section class="page-section bg-light" id="portfolio">
@@ -11,7 +9,6 @@
                 <h2 class="section-heading text-uppercase">{{ $less->lesson_name }}</h2>
                 <h3 class="section-subheading text-muted">{{ $less->lesson_title }}</h3>
             @endforeach
-
         </div>
         <div class="row">
             @foreach ($topics as $topic )
@@ -29,9 +26,7 @@
                     </div>
                 </div>
             </div>
-
             @endforeach
-
         </div>
     </div>
 </section>

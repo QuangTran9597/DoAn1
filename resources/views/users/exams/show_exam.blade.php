@@ -1,7 +1,5 @@
 @extends('users.index')
-
 @section('title', 'English-Stories')
-
 @section('content')
 
 <section class="page-section bg-light" id="portfolio">
@@ -11,9 +9,7 @@
                 <h3 class="section-subheading text-muted">Bạn đã sẵn sàng với các thử thách của chúng tôi chưa.</h3>
         </div>
         <div class="row">
-
             <div class="col-lg-4 col-sm-6 mb-4">
-
                 <div class="portfolio-item">
                     <a class="portfolio-link" data-toggle="modal" href="#portfolioModal1">
                         <div class="portfolio-hover">
@@ -31,8 +27,6 @@
             </div>
 
             @foreach ($reading as $read )
-
-
             <div class="col-lg-4 col-sm-6 mb-4">
 
                <div class="portfolio-item">
@@ -42,7 +36,6 @@
                        </div>
                        <img class="img-fluid" src="/upload/images/{{ $read->lesson_image}}" alt="" />
                    </a>
-
                    <div class="portfolio-caption">
                        <div class="portfolio-caption-heading"> {{ $read->lesson_name }} </div>
                        <div class="portfolio-caption-heading">Reading Test </div>

@@ -1,8 +1,7 @@
 @extends('users.index')
-
 @section('title', 'English-Stories')
-
 @section('content')
+
 <link rel="stylesheet" href="{{asset('css/pages/game_vocabulary.css')}}">
 <section class="page-section bg-light" id="portfolio">
     <div class="container">
@@ -41,21 +40,15 @@
                         @endphp
 
                         <div class="word-audio">
-
                             <div class="wordTrue" data-id="{{ $wordTrue['id']}}">{{ $wordTrue['vocabulary_name'] }}</div>
-
                             <audio class="audio-word" src="/upload/audio/{{ $wordTrue['vocabulary_audio']}}" controls></audio>
-
                         </div>
-
                     </div>
-
                 </div>
                 @endforeach
             </div>
 
             <div class="btn-check">
-
                 <button class="btn btn-primary check-img">Check</button>
                 <button class="btn btn-primary doAgain">Do Again</button>
                 <button class="btn btn-primary answer">Answer</button>
@@ -67,9 +60,5 @@
 </section>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="{{ asset('js/game_vocabulary.js')}}"></script>
-
-<script>
-
-</script>
 
 @endsection

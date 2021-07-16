@@ -11,7 +11,6 @@
         <h3 class="section-subheading text-muted">{{ $topics->topic_title }}</h3>
 
         <div class="row ">
-
             <div class="col col-sm-6 item ">
                 <h5>Bấm chọn hình thu nhỏ để xem cỡ chuẩn của ảnh</h5>
                 <div class="row">
@@ -133,7 +132,6 @@
             </dl>
         </form>
     </div>
-
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="{{ asset('js/start_vocabulary.js')}}"></script>

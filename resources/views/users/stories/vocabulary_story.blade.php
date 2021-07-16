@@ -10,9 +10,7 @@
     <div class="container" id="#tab1-content" style="text-align: center;">
         <h2 class="section-heading text-uppercase">Story: {{ $stories->story_name }}</h2>
         <h3 class="section-subheading text-muted">{{ $stories->story_content }}</h3>
-
         <div class="row ">
-
             <div class="col col-sm-6 item ">
                 <h5>Bấm chọn hình thu nhỏ để xem cỡ chuẩn của ảnh</h5>
                 <div class="row">
@@ -37,7 +35,6 @@
                     <div class="image-audio">
                         <img class="selected " id="ImgMain" img_key="{{ $key }}" title="{{ $story->image_name }} = {{ $story->vietsub }}"
                         src="/upload/images/stories/story_img/{{ $story->image}}" alt="">
-
 
                         <audio class="audio-img" audio_key="{{ $key }}" src="/upload/audio/story/{{ $story->image_audio }}" controls hidden type="audi/mpeg">
                         </audio>
@@ -89,9 +86,8 @@
 
     </span>
     @endif
-    
-    <div class="review-box">
 
+    <div class="review-box">
         <img class="review-star" src="{{ asset('img/star-vector.png')}}">
 
         <div class="review-message"><span>Hãy viết đánh giá của bạn về bài học này.</span>
@@ -104,7 +100,6 @@
     </div>
 
     <div id="add-review-form-placeholder" class="review-from" style="display: none;">
-
 
             <img id="add-review-form-placeholder-close" class="review-close" src="{{ asset('img/delete.png')}}">
             <h3 id="add-review-form-placeholder-title">Viết nhận xét của bạn về câu truyện: <span>{{ $stories->story_name }}</span></h3>
@@ -151,11 +146,8 @@
         </div>
     </div>
 
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
     <script src="{{ asset('js/story_vocabulary.js')}}"></script>
-
 </section>
 
 @endsection
