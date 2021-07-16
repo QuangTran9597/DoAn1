@@ -83,7 +83,9 @@ class VocabController extends Controller
      */
     public function edit($id)
     {
-        //
+        $vocabularies = Vocabulary::findOrFail($id);
+
+        dd($vocabularies->toArray());
     }
 
     /**
